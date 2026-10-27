@@ -6,7 +6,7 @@
   {% if site.prototype %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.intro | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
 </head>
 <body>

@@ -1,0 +1,1 @@
+<svg class="door{% if include.class %} {{ include.class }}{% endif %}" viewBox="0 0 32 52" aria-hidden="true" focusable="false"><path class="door-light" d="M2 50 V16 A14 14 0 0 1 30 16 V50 Z"/><path class="door-leaf" d="M2 16 A14 14 0 0 1 9 4 L15 8 V46 L2 50 Z"/><path class="door-frame" d="M2 50 V16 A14 14 0 0 1 30 16 V50 Z"/></svg>

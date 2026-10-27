@@ -5,9 +5,8 @@
 {% endif %}
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
-      <span class="brand-door" aria-hidden="true"></span>
-      OPEN DOOR
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="OPEN DOOR, home">
+      <span aria-hidden="true">OPEN D</span>{% include door.svg class="brand-door" %}<span aria-hidden="true">OR</span>
     </a>
     <nav aria-label="Main">
       <ul>

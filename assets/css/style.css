@@ -69,16 +69,16 @@ h3 { font-size: 1.2rem; margin: 0 0 .5rem; }
   gap: .5rem 1.5rem; padding: .75rem 0;
 }
 .brand {
-  display: inline-flex; align-items: center; gap: .55rem;
-  font-weight: 800; letter-spacing: .08em; text-decoration: none; color: var(--plum-dark);
+  display: inline-flex; align-items: flex-end;
+  font-weight: 800; font-size: 1.15rem; line-height: 1; letter-spacing: .08em;
+  text-decoration: none; color: var(--plum-dark);
 }
-.brand-door {
-  width: 16px; height: 24px; border-radius: 2px; background: var(--plum); position: relative;
-}
-.brand-door::after {
-  content: ""; position: absolute; right: 3px; top: 11px;
-  width: 3px; height: 3px; border-radius: 50%; background: var(--gold);
-}
+.brand span:first-child { white-space: pre; }
+/* The arched door that replaces the first O in DOOR */
+.door .door-light { fill: var(--gold); }
+.door .door-leaf { fill: var(--plum); }
+.door .door-frame { fill: none; stroke: var(--plum-dark); stroke-width: 3.5; stroke-linejoin: round; }
+.brand-door { width: .72em; height: 1.17em; margin: 0 .1em 0 .02em; }
 .site-header nav ul {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: .25rem;
@@ -101,26 +101,8 @@ h3 { font-size: 1.2rem; margin: 0 0 .5rem; }
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
 
 .hero-door { display: flex; justify-content: center; }
-.door-frame {
-  width: 180px; height: 270px; position: relative;
-  background: var(--gold); border-radius: 8px 8px 0 0;
-  box-shadow: 0 30px 60px -30px rgba(91, 42, 110, .5);
-  overflow: hidden;
-}
-.door-light {
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 50%, #fff7e0, var(--gold) 70%);
-}
-.door-panel {
-  position: absolute; top: 0; bottom: 0; left: 0; width: 58%; z-index: 1;
-  background: var(--plum); border-radius: 8px 0 0 0;
-  clip-path: polygon(0 0, 100% 8%, 100% 92%, 0 100%);
-  box-shadow: inset -8px 0 0 var(--plum-dark);
-}
-.door-panel::after {
-  content: ""; position: absolute; right: 18px; top: 50%;
-  width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
-}
+.door-large { width: 170px; height: auto; overflow: visible; filter: drop-shadow(0 30px 40px rgba(91, 42, 110, .25)); }
+.door-large .door-frame { stroke-width: 2; }
 
 /* Buttons */
 .button {

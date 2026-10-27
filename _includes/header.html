@@ -1,0 +1,20 @@
+{% if site.prototype %}
+<div class="prototype-banner" role="note">
+  Prototype – a student project, not a live service yet.
+</div>
+{% endif %}
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-door" aria-hidden="true"></span>
+      OPEN DOOR
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {% for item in site.nav %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

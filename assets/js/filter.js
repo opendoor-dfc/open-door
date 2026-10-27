@@ -1,0 +1,26 @@
+// Filters for the Opportunity Explorer. Runs only in the browser, sends nothing anywhere.
+(function () {
+  var form = document.getElementById('opp-filters');
+  if (!form) return;
+  var cards = document.querySelectorAll('.opp');
+  var count = document.getElementById('opp-count');
+
+  function apply() {
+    var category = form.category.value;
+    var audience = form.audience.value;
+    var freeOnly = form.free.checked;
+    var shown = 0;
+    cards.forEach(function (card) {
+      var ok =
+        (!category || card.dataset.category === category) &&
+        (!audience || card.dataset.audience.split('|').indexOf(audience) !== -1) &&
+        (!freeOnly || card.dataset.free === 'true');
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    count.textContent = shown === 1 ? '1 opportunity' : shown + ' opportunities';
+  }
+
+  form.addEventListener('change', apply);
+  apply();
+})();

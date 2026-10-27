@@ -1,0 +1,51 @@
+title: OPEN DOOR
+tagline: From Potential to Possibility.
+description: >-
+  A community-powered learning and development initiative helping girls and women
+  discover their interests, develop relevant skills, build their profiles and pursue
+  educational and professional opportunities.
+
+# Change this if the repository gets a different name.
+baseurl: "/open-door"
+url: ""
+
+# Prototype phase: keep the site out of search engines.
+# Set to false only after the legal notice (Impressum) and privacy policy are in place.
+prototype: true
+
+contact_email: "opendoor.project@example.com" # TODO: replace with the real project email
+
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  modules:
+    output: false
+  resources:
+    output: false
+  opportunities:
+    output: false
+  events:
+    output: false
+
+nav:
+  - title: Home
+    url: /
+  - title: Learn
+    url: /learn/
+  - title: Resources
+    url: /resources/
+  - title: Opportunities
+    url: /opportunities/
+  - title: Events
+    url: /events/
+  - title: About
+    url: /about/
+
+exclude:
+  - README.md
+  - .pages.yml
+  - Gemfile
+  - Gemfile.lock

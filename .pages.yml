@@ -1,0 +1,168 @@
+# Configuration for Pages CMS (https://pagescms.org) – the editor the team uses.
+# It defines which forms and fields appear in the editor. Only change this file if you know what you're doing.
+
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  # ---------- Lists (collections) ----------
+  - name: opportunities
+    label: Opportunities
+    type: collection
+    path: _opportunities
+    filename: "{primary}.md"
+    view:
+      fields: [title, category, deadline, last_verified]
+      sort: [deadline, title]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - name: example
+        label: Example entry (placeholder, not a real offer)
+        type: boolean
+        default: false
+      - name: category
+        label: Type
+        type: select
+        required: true
+        options:
+          values: [Internship, Fellowship, Scholarship, Grant, Competition, Certification, Volunteering, "Leadership & career programme"]
+      - name: audience
+        label: Suitable for
+        type: select
+        options:
+          multiple: true
+          values: [High school, "College & graduates", Women in transition]
+      - { name: free, label: Free to apply / free of charge, type: boolean, default: true }
+      - { name: who, label: Who it's for, type: text }
+      - { name: eligibility, label: Eligibility requirements, type: text }
+      - { name: offers, label: What it offers, type: text }
+      - { name: cost, label: Cost, type: string, description: "e.g. Free to apply / 20 € application fee" }
+      - name: deadline
+        label: Application deadline
+        type: date
+        description: Leave empty if rolling or not announced
+        options: { format: yyyy-MM-dd }
+      - { name: link, label: Official application link, type: string, description: "Full address starting with https://" }
+      - { name: documents, label: Documents typically required, type: text }
+      - { name: prepare, label: How to prepare, type: text }
+      - name: last_verified
+        label: Last verified on
+        type: date
+        description: The date someone from the team last checked this on the official page
+        options: { format: yyyy-MM-dd }
+      - { name: body, label: Extra notes (optional), type: rich-text }
+
+  - name: resources
+    label: Resources
+    type: collection
+    path: _resources
+    filename: "{primary}.md"
+    view:
+      fields: [title, category, cost]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: example, label: Example entry (placeholder), type: boolean, default: false }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values: [Learning platforms, Course directories, "Templates & guides", Career tools]
+      - { name: link, label: Link, type: string, description: "Full address starting with https://" }
+      - { name: cost, label: Cost, type: string, description: "e.g. Free / Free to audit, certificates often paid" }
+      - { name: summary, label: Short description, type: text }
+
+  - name: events
+    label: Events & Workshops
+    type: collection
+    path: _events
+    filename: "{primary}.md"
+    view:
+      fields: [title, status, date]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: order, label: Position in list (1 = first), type: number }
+      - { name: status, label: Status, type: string, description: "e.g. Planned – date to be announced / Registration open" }
+      - { name: target, label: For whom, type: text }
+      - { name: focus, label: Focus, type: text }
+      - { name: takeaway, label: Takeaway, type: text }
+      - { name: date, label: Date, type: date, options: { format: yyyy-MM-dd } }
+      - { name: location, label: Location, type: string }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: modules
+    label: Programme modules
+    type: collection
+    path: _modules
+    filename: "{fields.number}-{primary}.md"
+    view:
+      fields: [number, title]
+      sort: [number]
+    fields:
+      - { name: number, label: Module number, type: number, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: focus, label: Focus, type: text }
+      - { name: result, label: Participant output, type: text }
+      - { name: body, label: Description (optional), type: rich-text }
+
+  # ---------- Single pages ----------
+  - name: home
+    label: "Page: Home"
+    type: file
+    path: index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: home }
+      - { name: title, type: string, hidden: true, default: Home }
+      - { name: headline, label: Headline, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: audiences
+        label: Who we serve
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Group, type: string }
+          - { name: text, label: Text, type: text }
+      - name: journey
+        label: Journey steps
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Step, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: body, label: Main text, type: rich-text }
+
+  - name: learn
+    label: "Page: Learn"
+    type: file
+    path: learn.md
+    fields: &pagefields
+      - { name: layout, type: string, hidden: true }
+      - { name: title, label: Page title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: body, label: Main text, type: rich-text }
+
+  - name: resources-page
+    label: "Page: Resources"
+    type: file
+    path: resources.md
+    fields: *pagefields
+
+  - name: opportunities-page
+    label: "Page: Opportunities"
+    type: file
+    path: opportunities.md
+    fields: *pagefields
+
+  - name: events-page
+    label: "Page: Events"
+    type: file
+    path: events.md
+    fields: *pagefields
+
+  - name: about
+    label: "Page: About"
+    type: file
+    path: about.md
+    fields: *pagefields

@@ -2,7 +2,7 @@
 (function () {
   var form = document.getElementById('opp-filters');
   if (!form) return;
-  var cards = document.querySelectorAll('.opp');
+  var cards = document.querySelectorAll('.entry');
   var count = document.getElementById('opp-count');
 
   function apply() {

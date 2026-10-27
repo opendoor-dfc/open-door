@@ -1,18 +1,15 @@
 ---
 layout: page
 ---
-{{ content }}
+<div class="prose">{{ content }}</div>
 {% assign modules = site.modules | sort: "number" %}
-<ol class="modules">
+<ol class="module-list">
   {% for m in modules %}
-  <li class="module card">
-    <p class="module-num">Module {{ m.number }}</p>
+  <li class="module">
     <h3>{{ m.title }}</h3>
-    <dl class="facts">
-      <dt>Focus</dt><dd>{{ m.focus }}</dd>
-      <dt>Your output</dt><dd>{{ m.result }}</dd>
-    </dl>
-    {% if m.content != "" %}<div class="module-body">{{ m.content | markdownify }}</div>{% endif %}
+    <p><span class="label">Focus</span>{{ m.focus }}</p>
+    <p><span class="label">What you create</span>{{ m.result }}</p>
+    {% if m.content != "" %}<div class="module-extra">{{ m.content | markdownify }}</div>{% endif %}
   </li>
   {% endfor %}
 </ol>

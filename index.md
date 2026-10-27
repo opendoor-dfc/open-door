@@ -1,40 +1,25 @@
 ---
 layout: home
 title: Home
-headline: From Potential to Possibility.
-intro: >-
-  OPEN DOOR helps girls and women turn their ambitions into actionable pathways –
-  through structured learning, profile-building guidance and access to educational
-  and professional opportunities.
+headline: From potential to
+headline_accent: possibility.
+intro: Free guidance, learning resources and opportunities for girls and women – wherever they start from.
+letter_title: Why we started
+letter: |-
+  Many girls have the ambition. What is missing is someone to show them where to begin – which course to trust, how to write a first CV, which scholarship is real.
+
+  We are a group of women in the Women@Dior × UNESCO mentoring programme, and OPEN DOOR is our answer.
+letter_signature: The OPEN DOOR team
+audiences_title: For every stage of the way
 audiences:
-  - title: High school girls
-    text: Discover your interests and strengths, choose subjects and explore possible pathways.
-  - title: College students & graduates
-    text: Find courses, internships and fellowships, and build a CV and profile that opens doors.
-  - title: Women in transition
-    text: Learn new skills, change careers or return to work with a clear plan for your next step.
-journey:
-  - title: Discover
-    text: Find OPEN DOOR on Instagram, Facebook, LinkedIn or at a local event.
-  - title: Learn & explore
-    text: Use the certificate programme, resource library and opportunity explorer.
-  - title: Practise & apply
-    text: Join workshops and profile reviews and complete practical assignments.
-  - title: Act & share
-    text: Pursue opportunities, track your progress and help other participants.
+  - title: Still at school
+    text: Discover what you are good at, choose your subjects and see which paths exist.
+  - title: At college or just graduated
+    text: Find courses, internships and fellowships, and build a profile that gets noticed.
+  - title: Starting again
+    text: Learn new skills, change direction or return to work with a plan that fits your life.
+quote: Not simply to show girls which doors exist, but to give them the confidence to walk through them.
+quote_source: From the OPEN DOOR vision
+programme_text: Four to six weeks, at your own pace. Every module ends with something you make for yourself – and keep.
+opportunities_text: Every entry is checked by our team and tells you who it is for, what it costs, what you need – and how to prepare.
 ---
-
-## Why OPEN DOOR?
-
-Many girls and women have the ability and motivation to reach their goals but lack
-structured guidance: which learning path to choose, which resources to trust, how to
-build a professional profile and how to navigate applications.
-
-Our aim is not simply to show which doors exist, but to build the **knowledge, skills
-and confidence** to walk through them independently.
-
-## How to participate
-
-1. **Follow us** on social media for daily tips and opportunities.
-2. **Join the certificate programme** – five modules, each with a practical output.
-3. **Come to a workshop** near you and work on your own plan with guidance.

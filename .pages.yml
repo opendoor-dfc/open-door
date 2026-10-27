@@ -114,23 +114,24 @@ content:
     fields:
       - { name: layout, type: string, hidden: true, default: home }
       - { name: title, type: string, hidden: true, default: Home }
-      - { name: headline, label: Headline, type: string }
+      - { name: headline, label: "Headline (first part)", type: string }
+      - { name: headline_accent, label: "Headline (last words, shown in italic colour)", type: string }
       - { name: intro, label: Introduction, type: text }
+      - { name: letter_title, label: "'Why we started' – small title", type: string }
+      - { name: letter, label: "'Why we started' – text (empty line = new paragraph)", type: text }
+      - { name: letter_signature, label: "'Why we started' – signature", type: string }
+      - { name: audiences_title, label: "Who we serve – title", type: string }
       - name: audiences
-        label: Who we serve
+        label: "Who we serve – groups"
         type: object
         list: true
         fields:
           - { name: title, label: Group, type: string }
           - { name: text, label: Text, type: text }
-      - name: journey
-        label: Journey steps
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Step, type: string }
-          - { name: text, label: Text, type: text }
-      - { name: body, label: Main text, type: rich-text }
+      - { name: quote, label: "Big quote (without quotation marks)", type: text }
+      - { name: quote_source, label: Quote source, type: string }
+      - { name: programme_text, label: "Programme – short text", type: text }
+      - { name: opportunities_text, label: "Opportunities – short text", type: text }
 
   - name: learn
     label: "Page: Learn"

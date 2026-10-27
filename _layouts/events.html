@@ -1,12 +1,12 @@
 ---
 layout: page
 ---
-{{ content }}
-<div class="grid grid-2">
+<div class="prose">{{ content }}</div>
+<div class="entries">
   {% assign events = site.events | sort: "order" %}
   {% for e in events %}
-  <article class="card event">
-    <p class="eyebrow">{{ e.status }}</p>
+  <article class="entry">
+    <p class="kind">{{ e.status }}</p>
     <h3>{{ e.title }}</h3>
     <dl class="facts">
       <dt>For</dt><dd>{{ e.target }}</dd>
@@ -14,7 +14,7 @@ layout: page
       <dt>You take away</dt><dd>{{ e.takeaway }}</dd>
       {% if e.date %}<dt>Date</dt><dd>{{ e.date | date: "%-d %B %Y" }}{% if e.location %}, {{ e.location }}{% endif %}</dd>{% endif %}
     </dl>
-    {% if e.content != "" %}<div class="module-body">{{ e.content | markdownify }}</div>{% endif %}
+    {% if e.content != "" %}<div class="muted" style="font-size:15px;margin-top:16px">{{ e.content | markdownify }}</div>{% endif %}
   </article>
   {% endfor %}
 </div>

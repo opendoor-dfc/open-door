@@ -1,21 +1,18 @@
 ---
 layout: page
 ---
-{{ content }}
+<div class="prose">{{ content }}</div>
 {% assign groups = site.resources | group_by: "category" | sort: "name" %}
 {% for g in groups %}
-<h2>{{ g.name }}</h2>
-<div class="grid grid-2">
+<section class="group">
+  <h2>{{ g.name }}</h2>
   {% assign items = g.items | sort: "title" %}
   {% for r in items %}
-  <article class="card">
+  <div class="resource">
     <h3>{% if r.link contains "http" %}<a href="{{ r.link }}" rel="noopener" target="_blank">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}</h3>
-    <p>{{ r.summary }}</p>
-    <p class="tags">
-      <span class="tag">{{ r.cost }}</span>
-      {% if r.example %}<span class="tag tag-example">Example</span>{% endif %}
-    </p>
-  </article>
+    <p>{{ r.summary }}{% if r.example %} <span class="flag">– example</span>{% endif %}</p>
+    <p class="cost">{{ r.cost }}</p>
+  </div>
   {% endfor %}
-</div>
+</section>
 {% endfor %}

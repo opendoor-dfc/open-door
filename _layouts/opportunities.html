@@ -1,8 +1,7 @@
 ---
 layout: page
 ---
-{{ content }}
-{% assign opps = site.opportunities | sort: "deadline", "last" %}
+<div class="prose">{{ content }}</div>
 <form class="filters" id="opp-filters" onsubmit="return false" aria-label="Filter opportunities">
   <label>Type
     <select name="category">
@@ -11,7 +10,7 @@ layout: page
       {% for c in cats %}<option>{{ c }}</option>{% endfor %}
     </select>
   </label>
-  <label>For
+  <label>Suitable for
     <select name="audience">
       <option value="">Everyone</option>
       <option>High school</option>
@@ -22,38 +21,8 @@ layout: page
   <label class="check"><input type="checkbox" name="free"> Free only</label>
 </form>
 <p class="results-count" id="opp-count" aria-live="polite"></p>
-
-<div class="opp-list">
-  {% for o in opps %}
-  <article class="card opp" data-category="{{ o.category }}" data-audience="{{ o.audience | join: '|' }}" data-free="{{ o.free }}">
-    <div class="opp-head">
-      <h3>{{ o.title }}</h3>
-      <p class="tags">
-        <span class="tag">{{ o.category }}</span>
-        {% if o.free %}<span class="tag tag-free">Free</span>{% endif %}
-        {% if o.example %}<span class="tag tag-example">Example – not a real offer</span>{% endif %}
-      </p>
-    </div>
-    <dl class="facts">
-      <dt>Who it’s for</dt><dd>{{ o.who }}</dd>
-      <dt>Deadline</dt><dd>{% if o.deadline %}{{ o.deadline | date: "%-d %B %Y" }}{% else %}Rolling / not announced{% endif %}</dd>
-    </dl>
-    <details>
-      <summary>Details & how to prepare</summary>
-      <dl class="facts">
-        <dt>Eligibility</dt><dd>{{ o.eligibility }}</dd>
-        <dt>What it offers</dt><dd>{{ o.offers }}</dd>
-        <dt>Cost</dt><dd>{{ o.cost }}</dd>
-        <dt>Documents typically required</dt><dd>{{ o.documents }}</dd>
-        <dt>How to prepare</dt><dd>{{ o.prepare }}</dd>
-      </dl>
-      {% if o.content != "" %}<div class="prose">{{ o.content | markdownify }}</div>{% endif %}
-    </details>
-    <p class="opp-foot">
-      {% if o.link contains "http" %}<a class="button button-small" href="{{ o.link }}" rel="noopener" target="_blank">Official page</a>{% endif %}
-      <span class="verified">Last verified: {% if o.last_verified %}{{ o.last_verified | date: "%-d %b %Y" }}{% else %}not yet{% endif %}</span>
-    </p>
-  </article>
-  {% endfor %}
+<div class="entries">
+  {% assign opps = site.opportunities | sort: "deadline", "last" %}
+  {% for o in opps %}{% include opportunity.html item=o details=true %}{% endfor %}
 </div>
 <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

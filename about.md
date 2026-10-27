@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: text
 title: About & Community
 eyebrow: About us
+contact_button: Write to the team
 intro: OPEN DOOR is a community-powered initiative. Our vision is to equip girls and women with the knowledge, skills and confidence to pursue the possibilities beyond the doors they see.
 ---
 
@@ -32,6 +33,6 @@ formally secured.
 OPEN DOOR is being developed as a project within the Women@Dior × UNESCO mentoring
 programme.
 
-## Contact
 
-Write to us – please do not send personal documents such as CVs by email.
+
+Questions, ideas or want to collaborate? Write to us – but please do not send personal documents such as CVs.

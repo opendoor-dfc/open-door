@@ -1,0 +1,26 @@
+{% assign o = include.item %}
+<article class="entry{% if include.tilt %} tilt{% endif %}" data-category="{{ o.category }}" data-audience="{{ o.audience | join: '|' }}" data-free="{{ o.free }}">
+  <p class="kind">{{ o.category }}{% if o.free %} · free{% endif %}{% if o.example %} · example, not a real offer{% endif %}</p>
+  <h3>{{ o.title }}</h3>
+  <dl class="facts">
+    <dt>Who it’s for</dt><dd>{{ o.who }}</dd>
+    {% if o.documents %}<dt>You’ll need</dt><dd>{{ o.documents }}</dd>{% endif %}
+    <dt>Deadline</dt><dd>{% if o.deadline %}{{ o.deadline | date: "%-d %B %Y" }}{% else %}Rolling or not announced{% endif %}</dd>
+  </dl>
+  {% if include.details %}
+  <details>
+    <summary>Eligibility, cost &amp; how to prepare</summary>
+    <dl class="facts">
+      <dt>Eligibility</dt><dd>{{ o.eligibility }}</dd>
+      <dt>What it offers</dt><dd>{{ o.offers }}</dd>
+      <dt>Cost</dt><dd>{{ o.cost }}</dd>
+      <dt>How to prepare</dt><dd>{{ o.prepare }}</dd>
+    </dl>
+    {% if o.content != "" %}{{ o.content | markdownify }}{% endif %}
+  </details>
+  {% endif %}
+  <div class="entry-foot">
+    <p class="stamp">{% if o.last_verified %}Checked by the team on {{ o.last_verified | date: "%-d %B %Y" }}{% else %}Not yet checked{% endif %}</p>
+    {% if include.details and o.link contains "http" %}<a class="btn" href="{{ o.link }}" rel="noopener" target="_blank">Official page</a>{% endif %}
+  </div>
+</article>

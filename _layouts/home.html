@@ -1,54 +1,67 @@
 ---
 layout: default
 ---
-<section class="hero">
-  <div class="container hero-inner">
-    <div>
-      <p class="eyebrow">OPEN DOOR</p>
-      <h1>{{ page.headline }}</h1>
-      <p class="lead">{{ page.intro }}</p>
-      <div class="actions">
-        <a class="button" href="{{ '/learn/' | relative_url }}">Explore the programme</a>
-        <a class="button button-ghost" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
-      </div>
-    </div>
-    <div class="hero-door" aria-hidden="true">
-      <div class="door-frame"><div class="door-panel"></div><div class="door-light"></div></div>
+<section class="wrap hero">
+  <h1>{{ page.headline }} {% if page.headline_accent %}<i>{{ page.headline_accent }}</i>{% endif %}</h1>
+  <div class="hero-foot">
+    <p>{{ page.intro }}</p>
+    <div class="cta">
+      <a class="btn" href="{{ '/learn/' | relative_url }}">Join the programme</a>
+      <a class="text-link" href="{{ '/opportunities/' | relative_url }}">Browse opportunities →</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>Who we serve</h2>
-    <div class="grid grid-3">
-      {% for group in page.audiences %}
-      <div class="card">
-        <h3>{{ group.title }}</h3>
-        <p>{{ group.text }}</p>
-      </div>
-      {% endfor %}
-    </div>
+{% if page.letter %}
+<section class="wrap section letter">
+  <h2>{{ page.letter_title }}</h2>
+  <div class="letter-body">
+    {{ page.letter | markdownify }}
+    {% if page.letter_signature %}<p class="signature">— {{ page.letter_signature }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section class="wrap section split">
+  <h2 class="section-title">{{ page.audiences_title }}</h2>
+  <div class="rows">
+    {% for group in page.audiences %}
+    <div class="row"><h3>{{ group.title }}</h3><p>{{ group.text }}</p></div>
+    {% endfor %}
   </div>
 </section>
 
-<section class="section section-tint">
-  <div class="container">
-    <h2>Your journey</h2>
-    <ol class="journey">
-      {% for step in page.journey %}
-      <li>
-        <span class="journey-num">{{ forloop.index }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.text }}</p>
-      </li>
-      {% endfor %}
-    </ol>
+{% if page.quote %}
+<section class="quote">
+  <div class="wrap">
+    <blockquote>“{{ page.quote }}”</blockquote>
+    {% if page.quote_source %}<cite>{{ page.quote_source }}</cite>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% assign modules = site.modules | sort: "number" %}
+<section class="wrap section">
+  <h2 class="section-title">The certificate programme</h2>
+  <p class="stages">{% for m in modules %}{% if forloop.last %}<span class="last">{{ m.title }}</span>{% else %}{{ m.title }} <span class="sep">/</span> {% endif %}{% endfor %}</p>
+  <div class="split">
+    <p class="muted">{{ page.programme_text }}</p>
+    <ul class="outputs">
+      {% for m in modules %}<li><b>{{ m.title }}</b><small>{{ m.result }}</small></li>{% endfor %}
+    </ul>
   </div>
 </section>
 
-<section class="section">
-  <div class="container prose">
-    {{ content }}
+{% assign featured = site.opportunities | sort: "deadline", "last" | first %}
+<section class="wrap section split">
+  <div>
+    <h2 class="section-title">Opportunities, <i>explained</i></h2>
+    <p class="muted">{{ page.opportunities_text }}</p>
+    <a class="text-link" href="{{ '/opportunities/' | relative_url }}">See all opportunities →</a>
   </div>
+  {% if featured %}<div>{% include opportunity.html item=featured tilt=true %}</div>{% endif %}
 </section>
+
+{% if content contains "<" %}
+<section class="wrap section"><div class="prose">{{ content }}</div></section>
+{% endif %}

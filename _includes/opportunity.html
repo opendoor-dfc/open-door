@@ -1,26 +1,28 @@
 {% assign o = include.item %}
-<article class="entry{% if include.tilt %} tilt{% endif %}" data-category="{{ o.category }}" data-audience="{{ o.audience | join: '|' }}" data-free="{{ o.free }}">
-  <p class="kind">{{ o.category }}{% if o.free %} · free{% endif %}{% if o.example %} · example, not a real offer{% endif %}</p>
+<article class="entry" data-category="{{ o.category }}" data-audience="{{ o.audience | join: '|' }}" data-free="{{ o.free }}" data-deadline="{{ o.deadline | date: '%Y-%m-%d' }}">
+  <div class="tags">
+    <span class="tag">{{ o.category }}</span>
+    {% if o.free %}<span class="tag tag-grey">Free</span>{% endif %}
+    {% if o.example %}<span class="tag tag-grey">Example</span>{% endif %}
+  </div>
   <h3>{{ o.title }}</h3>
   <dl class="facts">
-    <dt>Who it’s for</dt><dd>{{ o.who }}</dd>
-    {% if o.documents %}<dt>You’ll need</dt><dd>{{ o.documents }}</dd>{% endif %}
-    <dt>Deadline</dt><dd>{% if o.deadline %}{{ o.deadline | date: "%-d %B %Y" }}{% else %}Rolling or not announced{% endif %}</dd>
+    <dt>For</dt><dd>{{ o.who }}</dd>
+    <dt>Deadline</dt><dd>{% if o.deadline %}{{ o.deadline | date: "%-d %B %Y" }}{% else %}Open{% endif %}</dd>
   </dl>
-  {% if include.details %}
   <details>
-    <summary>Eligibility, cost &amp; how to prepare</summary>
+    <summary>More details</summary>
     <dl class="facts">
       <dt>Eligibility</dt><dd>{{ o.eligibility }}</dd>
-      <dt>What it offers</dt><dd>{{ o.offers }}</dd>
+      <dt>Offers</dt><dd>{{ o.offers }}</dd>
       <dt>Cost</dt><dd>{{ o.cost }}</dd>
-      <dt>How to prepare</dt><dd>{{ o.prepare }}</dd>
+      <dt>Documents</dt><dd>{{ o.documents }}</dd>
+      <dt>Prepare</dt><dd>{{ o.prepare }}</dd>
     </dl>
     {% if o.content != "" %}{{ o.content | markdownify }}{% endif %}
   </details>
-  {% endif %}
   <div class="entry-foot">
-    <p class="stamp">{% if o.last_verified %}Checked by the team on {{ o.last_verified | date: "%-d %B %Y" }}{% else %}Not yet checked{% endif %}</p>
-    {% if include.details and o.link contains "http" %}<a class="btn" href="{{ o.link }}" rel="noopener" target="_blank">Official page</a>{% endif %}
+    <p class="checked">{% if o.last_verified %}Checked {{ o.last_verified | date: "%-d %b %Y" }}{% else %}Not checked yet{% endif %}</p>
+    {% if o.link contains "http" %}<a class="btn btn-small" href="{{ o.link }}" rel="noopener" target="_blank">Official page</a>{% endif %}
   </div>
 </article>

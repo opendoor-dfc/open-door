@@ -1,7 +1,6 @@
 ---
 layout: page
 ---
-<div class="prose">{{ content }}</div>
 <form class="filters" id="opp-filters" onsubmit="return false" aria-label="Filter opportunities">
   <label>Type
     <select name="category">
@@ -10,7 +9,7 @@ layout: page
       {% for c in cats %}<option>{{ c }}</option>{% endfor %}
     </select>
   </label>
-  <label>Suitable for
+  <label>For
     <select name="audience">
       <option value="">Everyone</option>
       <option>High school</option>
@@ -23,6 +22,7 @@ layout: page
 <p class="results-count" id="opp-count" aria-live="polite"></p>
 <div class="entries">
   {% assign opps = site.opportunities | sort: "deadline", "last" %}
-  {% for o in opps %}{% include opportunity.html item=o details=true %}{% endfor %}
+  {% for o in opps %}{% include opportunity.html item=o %}{% endfor %}
 </div>
+{% if content contains "<" %}<div class="prose" style="margin-top:32px">{{ content }}</div>{% endif %}
 <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

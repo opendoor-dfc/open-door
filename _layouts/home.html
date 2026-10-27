@@ -2,66 +2,43 @@
 layout: default
 ---
 <section class="wrap hero">
-  <h1>{{ page.headline }} {% if page.headline_accent %}<i>{{ page.headline_accent }}</i>{% endif %}</h1>
-  <div class="hero-foot">
-    <p>{{ page.intro }}</p>
-    <div class="cta">
-      <a class="btn" href="{{ '/learn/' | relative_url }}">Join the programme</a>
-      <a class="text-link" href="{{ '/opportunities/' | relative_url }}">Browse opportunities →</a>
-    </div>
+  <h1>{{ page.headline }}</h1>
+  <p>{{ page.intro }}</p>
+  <div class="actions">
+    <a class="btn" href="{{ '/learn/' | relative_url }}">How it works</a>
+    <a class="btn btn-light" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
   </div>
 </section>
 
-{% if page.letter %}
-<section class="wrap section letter">
-  <h2>{{ page.letter_title }}</h2>
-  <div class="letter-body">
-    {{ page.letter | markdownify }}
-    {% if page.letter_signature %}<p class="signature">— {{ page.letter_signature }}</p>{% endif %}
-  </div>
-</section>
-{% endif %}
-
-<section class="wrap section split">
-  <h2 class="section-title">{{ page.audiences_title }}</h2>
-  <div class="rows">
+<section class="wrap section">
+  <h2>{{ page.audiences_title }}</h2>
+  <div class="grid">
     {% for group in page.audiences %}
-    <div class="row"><h3>{{ group.title }}</h3><p>{{ group.text }}</p></div>
+    <div class="card"><h3>{{ group.title }}</h3><p>{{ group.text }}</p></div>
     {% endfor %}
   </div>
 </section>
 
-{% if page.quote %}
-<section class="quote">
-  <div class="wrap">
-    <blockquote>“{{ page.quote }}”</blockquote>
-    {% if page.quote_source %}<cite>{{ page.quote_source }}</cite>{% endif %}
-  </div>
-</section>
-{% endif %}
-
 {% assign modules = site.modules | sort: "number" %}
 <section class="wrap section">
-  <h2 class="section-title">The certificate programme</h2>
-  <p class="stages">{% for m in modules %}{% if forloop.last %}<span class="last">{{ m.title }}</span>{% else %}{{ m.title }} <span class="sep">/</span> {% endif %}{% endfor %}</p>
-  <div class="split">
-    <p class="muted">{{ page.programme_text }}</p>
-    <ul class="outputs">
-      {% for m in modules %}<li><b>{{ m.title }}</b><small>{{ m.result }}</small></li>{% endfor %}
-    </ul>
+  <h2>{{ page.programme_title }}</h2>
+  <ol class="steps">
+    {% for m in modules %}<li><b>{{ m.number }}. {{ m.title }}</b><small>{{ m.result }}</small></li>{% endfor %}
+  </ol>
+</section>
+
+<section class="wrap section">
+  <h2>Explore</h2>
+  <div class="grid">
+    <a class="card" href="{{ '/resources/' | relative_url }}"><h3>Resources</h3><p>Free courses, templates and guides.</p></a>
+    <a class="card" href="{{ '/opportunities/' | relative_url }}"><h3>Opportunities</h3><p>Scholarships, internships and more.</p></a>
+    <a class="card" href="{{ '/events/' | relative_url }}"><h3>Events</h3><p>Workshops near you.</p></a>
   </div>
 </section>
 
-{% assign featured = site.opportunities | sort: "deadline", "last" | first %}
-<section class="wrap section split">
-  <div>
-    <h2 class="section-title">Opportunities, <i>explained</i></h2>
-    <p class="muted">{{ page.opportunities_text }}</p>
-    <a class="text-link" href="{{ '/opportunities/' | relative_url }}">See all opportunities →</a>
-  </div>
-  {% if featured %}<div>{% include opportunity.html item=featured tilt=true %}</div>{% endif %}
+{% if page.story_placeholder %}
+<section class="wrap section">
+  <h2>{{ page.story_title }}</h2>
+  <div class="placeholder">{{ page.story_placeholder }}</div>
 </section>
-
-{% if content contains "<" %}
-<section class="wrap section"><div class="prose">{{ content }}</div></section>
 {% endif %}

@@ -1,38 +1,18 @@
 ---
 layout: text
-title: About & Community
-eyebrow: About us
-contact_button: Write to the team
-intro: OPEN DOOR is a community-powered initiative. Our vision is to equip girls and women with the knowledge, skills and confidence to pursue the possibilities beyond the doors they see.
+title: About
+intro: OPEN DOOR is a student project in the Women@Dior × UNESCO mentoring programme.
+contact_button: Write to us
 ---
 
-## Our three pillars
+<div class="placeholder"><strong>Placeholder.</strong> Our story and our team. The team writes this text.</div>
 
-- **Digital community** – daily content, practical guidance and peer engagement on Instagram, Facebook and LinkedIn.
-- **Learning & resource hub** – this website, with the certificate programme, resource library and opportunity explorer.
-- **Local action** – workshops, profile clinics and guided exercises in schools, colleges and community venues.
+## Team roles
 
-## The team
-
-| Role | Responsibility |
+| Role | Responsible for |
 |---|---|
-| Project Lead & Partnerships | Strategy, coordination, institutional outreach and partnerships |
-| Digital Content Lead | Social media strategy, content calendar and community engagement |
-| Learning & Curriculum Lead | Certificate programme, lesson materials and assessments |
-| Website & Resource Lead | Website structure, learning resources, opportunity verification and updates |
-| Events & Impact Lead | Workshops, participant support, feedback and outcome measurement |
-
-## Become a peer volunteer
-
-Graduates of the programme can become peer guides and help the next participants
-find their way. Partnerships and sponsorships are planned and will be announced once
-formally secured.
-
-## Background
-
-OPEN DOOR is being developed as a project within the Women@Dior × UNESCO mentoring
-programme.
-
-
-
-Questions, ideas or want to collaborate? Write to us – but please do not send personal documents such as CVs.
+| Project Lead & Partnerships | Strategy and partnerships |
+| Digital Content Lead | Social media and community |
+| Learning & Curriculum Lead | Programme and lessons |
+| Website & Resource Lead | Website and resources |
+| Events & Impact Lead | Workshops and feedback |

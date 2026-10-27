@@ -1,7 +1,6 @@
 ---
 layout: page
 ---
-<div class="prose">{{ content }}</div>
 {% assign groups = site.resources | group_by: "category" | sort: "name" %}
 {% for g in groups %}
 <section class="group">
@@ -9,10 +8,13 @@ layout: page
   {% assign items = g.items | sort: "title" %}
   {% for r in items %}
   <div class="resource">
-    <h3>{% if r.link contains "http" %}<a href="{{ r.link }}" rel="noopener" target="_blank">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}</h3>
-    <p>{{ r.summary }}{% if r.example %} <span class="flag">– example</span>{% endif %}</p>
-    <p class="cost">{{ r.cost }}</p>
+    <div>
+      <h3>{% if r.link contains "http" %}<a href="{{ r.link }}" rel="noopener" target="_blank">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}</h3>
+      <p>{{ r.summary }}</p>
+    </div>
+    <span class="cost">{% if r.example %}<span class="tag tag-grey">Example</span>{% else %}{{ r.cost }}{% endif %}</span>
   </div>
   {% endfor %}
 </section>
 {% endfor %}
+{% if content contains "<" %}<div class="prose" style="margin-top:32px">{{ content }}</div>{% endif %}

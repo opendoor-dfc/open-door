@@ -79,11 +79,10 @@ content:
     path: _events
     filename: "{primary}.md"
     view:
-      fields: [title, status, date]
+      fields: [title, date]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: order, label: Position in list (1 = first), type: number }
-      - { name: status, label: Status, type: string, description: "e.g. Planned – date to be announced / Registration open" }
       - { name: target, label: For whom, type: text }
       - { name: focus, label: Focus, type: text }
       - { name: takeaway, label: Takeaway, type: text }
@@ -114,24 +113,19 @@ content:
     fields:
       - { name: layout, type: string, hidden: true, default: home }
       - { name: title, type: string, hidden: true, default: Home }
-      - { name: headline, label: "Headline (first part)", type: string }
-      - { name: headline_accent, label: "Headline (last words, shown in italic colour)", type: string }
-      - { name: intro, label: Introduction, type: text }
-      - { name: letter_title, label: "'Why we started' – small title", type: string }
-      - { name: letter, label: "'Why we started' – text (empty line = new paragraph)", type: text }
-      - { name: letter_signature, label: "'Why we started' – signature", type: string }
-      - { name: audiences_title, label: "Who we serve – title", type: string }
+      - { name: headline, label: Headline, type: string }
+      - { name: intro, label: Short introduction (one sentence), type: text }
+      - { name: audiences_title, label: "Who it's for: title", type: string }
       - name: audiences
-        label: "Who we serve – groups"
+        label: "Who it's for: groups"
         type: object
         list: true
         fields:
           - { name: title, label: Group, type: string }
-          - { name: text, label: Text, type: text }
-      - { name: quote, label: "Big quote (without quotation marks)", type: text }
-      - { name: quote_source, label: Quote source, type: string }
-      - { name: programme_text, label: "Programme – short text", type: text }
-      - { name: opportunities_text, label: "Opportunities – short text", type: text }
+          - { name: text, label: Short text, type: string }
+      - { name: programme_title, label: "Programme: title", type: string }
+      - { name: story_title, label: "Our story: title", type: string }
+      - { name: story_placeholder, label: "Our story: text", type: text }
 
   - name: learn
     label: "Page: Learn"
@@ -140,7 +134,6 @@ content:
     fields: &pagefields
       - { name: layout, type: string, hidden: true }
       - { name: title, label: Page title, type: string }
-      - { name: eyebrow, label: Small label above title, type: string }
       - { name: intro, label: Introduction, type: text }
       - { name: body, label: Main text, type: rich-text }
 

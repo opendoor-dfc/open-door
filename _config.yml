@@ -13,7 +13,7 @@ url: ""
 # Set to false only after the legal notice (Impressum) and privacy policy are in place.
 prototype: true
 
-contact_email: "opendoor.project@example.com" # TODO: replace with the real project email
+contact_email: "opendoors.dfc@gmail.com"
 
 permalink: pretty
 markdown: kramdown

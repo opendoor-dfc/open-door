@@ -2,10 +2,7 @@
 layout: home
 title: Home
 headline: From Potential to Possibility.
-intro: >-
-  OPEN DOOR helps girls and women turn their ambitions into actionable pathways –
-  through structured learning, profile-building guidance and access to educational
-  and professional opportunities.
+intro: Free learning, guidance and opportunities for girls and women.
 audiences:
   - title: High school girls
     text: Discover your interests and strengths, choose subjects and explore possible pathways.

@@ -1,12 +1,16 @@
 ---
 layout: default
 ---
-<div class="wrap">
-  <header class="page-head">
+<section class="page-hero">
+  <div class="container">
+    {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
     {% if page.intro %}<p class="lead">{{ page.intro }}</p>{% endif %}
-  </header>
-  <div class="page-content">
-    {{ content }}
   </div>
+</section>
+<div class="container prose">
+  {{ content }}
 </div>
+{% if page.url == "/about/" %}
+<div class="container prose"><p><a class="button" href="mailto:{{ site.contact_email }}">Email the team</a></p></div>
+{% endif %}

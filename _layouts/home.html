@@ -1,44 +1,54 @@
 ---
 layout: default
 ---
-<section class="wrap hero">
-  <h1>{{ page.headline }}</h1>
-  <p>{{ page.intro }}</p>
-  <div class="actions">
-    <a class="btn" href="{{ '/learn/' | relative_url }}">How it works</a>
-    <a class="btn btn-light" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <p class="eyebrow">OPEN DOOR</p>
+      <h1>{{ page.headline }}</h1>
+      <p class="lead">{{ page.intro }}</p>
+      <div class="actions">
+        <a class="button" href="{{ '/learn/' | relative_url }}">Explore the programme</a>
+        <a class="button button-ghost" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
+      </div>
+    </div>
+    <div class="hero-door" aria-hidden="true">
+      <div class="door-frame"><div class="door-panel"></div><div class="door-light"></div></div>
+    </div>
   </div>
 </section>
 
-<section class="wrap section">
-  <h2>{{ page.audiences_title }}</h2>
-  <div class="grid">
-    {% for group in page.audiences %}
-    <div class="card"><h3>{{ group.title }}</h3><p>{{ group.text }}</p></div>
-    {% endfor %}
+<section class="section">
+  <div class="container">
+    <h2>Who we serve</h2>
+    <div class="grid grid-3">
+      {% for group in page.audiences %}
+      <div class="card">
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
-{% assign modules = site.modules | sort: "number" %}
-<section class="wrap section">
-  <h2>{{ page.programme_title }}</h2>
-  <ol class="steps">
-    {% for m in modules %}<li><b>{{ m.number }}. {{ m.title }}</b><small>{{ m.result }}</small></li>{% endfor %}
-  </ol>
-</section>
-
-<section class="wrap section">
-  <h2>Explore</h2>
-  <div class="grid">
-    <a class="card" href="{{ '/resources/' | relative_url }}"><h3>Resources</h3><p>Free courses, templates and guides.</p></a>
-    <a class="card" href="{{ '/opportunities/' | relative_url }}"><h3>Opportunities</h3><p>Scholarships, internships and more.</p></a>
-    <a class="card" href="{{ '/events/' | relative_url }}"><h3>Events</h3><p>Workshops near you.</p></a>
+<section class="section section-tint">
+  <div class="container">
+    <h2>Your journey</h2>
+    <ol class="journey">
+      {% for step in page.journey %}
+      <li>
+        <span class="journey-num">{{ forloop.index }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
   </div>
 </section>
 
-{% if page.story_placeholder %}
-<section class="wrap section">
-  <h2>{{ page.story_title }}</h2>
-  <div class="placeholder">{{ page.story_placeholder }}</div>
+<section class="section">
+  <div class="container prose">
+    {{ content }}
+  </div>
 </section>
-{% endif %}

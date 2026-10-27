@@ -1,14 +1,18 @@
 ---
 layout: page
 ---
+{{ content }}
 {% assign modules = site.modules | sort: "number" %}
 <ol class="modules">
   {% for m in modules %}
-  <li class="module">
-    <h3>{{ m.number }}. {{ m.title }}</h3>
-    <p><span class="label">You learn about</span>{{ m.focus }}</p>
-    <p><span class="label">You create</span>{{ m.result }}</p>
+  <li class="module card">
+    <p class="module-num">Module {{ m.number }}</p>
+    <h3>{{ m.title }}</h3>
+    <dl class="facts">
+      <dt>Focus</dt><dd>{{ m.focus }}</dd>
+      <dt>Your output</dt><dd>{{ m.result }}</dd>
+    </dl>
+    {% if m.content != "" %}<div class="module-body">{{ m.content | markdownify }}</div>{% endif %}
   </li>
   {% endfor %}
 </ol>
-{% if content contains "<" %}<div class="prose" style="margin-top:32px">{{ content }}</div>{% endif %}

@@ -1,7 +1,16 @@
 ---
 layout: learn
-title: Learn
-intro: A free programme in 5 modules. In each module you create something for yourself.
+title: Learn – Certificate Programme
+eyebrow: Certificate programme
+intro: Five modules that combine learning with practical work. Each module ends with something you create for yourself.
 ---
 
-<div class="placeholder"><strong>Placeholder.</strong> How to join, how long it takes and how the certificate works. The team adds this once the pilot is planned.</div>
+The programme runs for **four to six weeks** (pilot format). Each module includes short
+lessons, a learning activity and a practical assignment.
+
+**Certificate:** You receive an OPEN DOOR certificate when you have completed all five
+module outputs – not just for enrolling or attending. The certificate is issued by
+OPEN DOOR and is not an external accreditation.
+
+**How to enrol:** Enrolment for the pilot cohort will open soon. Follow our social
+channels to hear first.

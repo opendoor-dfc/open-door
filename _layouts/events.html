@@ -1,17 +1,20 @@
 ---
 layout: page
 ---
-{% if content contains "<" %}<div class="prose">{{ content }}</div>{% endif %}
-<div class="grid">
+{{ content }}
+<div class="grid grid-2">
   {% assign events = site.events | sort: "order" %}
   {% for e in events %}
-  <article class="card">
+  <article class="card event">
+    <p class="eyebrow">{{ e.status }}</p>
     <h3>{{ e.title }}</h3>
-    <dl class="facts" style="margin-top:8px">
+    <dl class="facts">
       <dt>For</dt><dd>{{ e.target }}</dd>
-      <dt>Take away</dt><dd>{{ e.takeaway }}</dd>
-      {% if e.date %}<dt>When</dt><dd>{{ e.date | date: "%-d %B %Y" }}{% if e.location %}, {{ e.location }}{% endif %}</dd>{% endif %}
+      <dt>Focus</dt><dd>{{ e.focus }}</dd>
+      <dt>You take away</dt><dd>{{ e.takeaway }}</dd>
+      {% if e.date %}<dt>Date</dt><dd>{{ e.date | date: "%-d %B %Y" }}{% if e.location %}, {{ e.location }}{% endif %}</dd>{% endif %}
     </dl>
+    {% if e.content != "" %}<div class="module-body">{{ e.content | markdownify }}</div>{% endif %}
   </article>
   {% endfor %}
 </div>

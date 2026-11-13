@@ -1,7 +1,6 @@
 ---
 layout: home
 title: Home
-eyebrow: For girls and women
 headline: Your next chapter starts here.
 intro: Find out what suits you, learn practical skills and apply for opportunities.
 button_text: Start with the career quiz

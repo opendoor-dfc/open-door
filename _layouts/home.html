@@ -2,9 +2,13 @@
 layout: default
 ---
 <section class="hero">
-  <div class="eyebrow">{{ page.eyebrow }}</div>
-  <h1>{{ page.headline }}</h1>
-  <p>{{ page.intro }}</p>
+  <div class="hero-text">
+    <div class="eyebrow">{{ page.eyebrow }}</div>
+    <h1>{{ page.headline }}</h1>
+    <p>{{ page.intro }}</p>
+    {% if page.button_text %}<div class="actions"><a class="btn gold" href="{{ page.button_link | relative_url }}">{{ page.button_text }} →</a></div>{% endif %}
+  </div>
+  {% include door.svg class="hero-door" %}
 </section>
 
 <div class="section-head"><div><h2>{{ page.journey_title }}</h2><div class="muted">{{ page.journey_subtitle }}</div></div></div>

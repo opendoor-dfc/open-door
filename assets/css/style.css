@@ -49,7 +49,11 @@ button { cursor: pointer; }
 /* ---------- Layout ---------- */
 .wrap { max-width: 1160px; margin: auto; padding: 30px 22px 70px; }
 
-.hero { background: var(--green); color: #fff; border-radius: 22px; padding: clamp(28px, 6vw, 70px); position: relative; overflow: hidden; }
+.hero { background: var(--green); color: #fff; border-radius: 22px; padding: clamp(28px, 5vw, 56px); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.hero-door { flex: 0 0 auto; width: 130px; height: auto; margin-right: clamp(0px, 4vw, 48px); }
+.hero-door .door-light { fill: var(--gold); }
+.hero-door .door-leaf { fill: var(--green2); }
+.hero-door .door-frame { stroke: #e2c58f; stroke-width: 1.6; }
 .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; font-weight: 800; }
 .hero .eyebrow { color: #e2c58f; }
 h1 { font-size: clamp(2.1rem, 5vw, 4.1rem); line-height: 1.04; max-width: 720px; margin: 14px 0; color: var(--green); }
@@ -128,6 +132,7 @@ label { display: block; font-weight: 650; margin: 12px 0 5px; }
   .prototype-note { font-size: .7rem; padding: 5px 12px; line-height: 1.35; }
   .grid, .grid.two, .grid.three { grid-template-columns: 1fr; }
   .hero { border-radius: 15px; }
+  .hero-door { display: none; }
   .filters { grid-template-columns: 1fr; }
   .filters input { grid-column: auto; }
   .section-head { align-items: flex-start; flex-direction: column; }

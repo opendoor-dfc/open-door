@@ -95,6 +95,8 @@ content:
       - { name: eyebrow, label: Small label above headline, type: string }
       - { name: headline, label: Headline, type: string }
       - { name: intro, label: Introduction, type: text }
+      - { name: button_text, label: Button text, type: string }
+      - { name: button_link, label: "Button link (e.g. /path/)", type: string }
       - { name: journey_title, label: "Journey: title", type: string }
       - { name: journey_subtitle, label: "Journey: subtitle", type: string }
       - name: cards

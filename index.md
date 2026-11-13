@@ -3,10 +3,8 @@ layout: home
 title: Home
 headline: Your next chapter starts here.
 intro: Find out what suits you, learn practical skills and apply for opportunities.
-button_text: Start with the career quiz
-button_link: /path/
 journey_title: Your journey, your pace.
-journey_subtitle: Start with any step.
+journey_subtitle: "The programme follows four steps, one after the other. Each step builds on the last: discover what suits you, prepare with the right skills, pursue opportunities and track your progress."
 cards:
   - label: 01 / DISCOVER
     title: Find Your Path

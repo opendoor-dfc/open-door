@@ -1,10 +1,9 @@
 <footer class="site-footer">
-  <div class="container">
-    <p class="footer-brand"><strong>OPEN DOOR</strong> · {{ site.tagline }}</p>
-    {% if site.prototype %}
-    <p>Student prototype, developed as part of the Women@Dior × UNESCO mentoring programme. Not a live service. Entries marked “Example” are placeholders, not real offers.</p>
-    {% endif %}
-    <p>This website does not use cookies, tracking or forms and does not collect personal data.</p>
-    <p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
-  </div>
+  <p>OPEN DOOR · {{ site.tagline }}</p>
+  <p class="small">Low-fidelity interactive concept · Sample data only · Not a production service</p>
+  <p class="small">Your progress is saved only in this browser. Nothing is sent to us. No cookies, no tracking.</p>
+  <nav aria-label="More">
+    {% for item in site.footer_nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+    <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+  </nav>
 </footer>

@@ -1,0 +1,22 @@
+---
+layout: page
+---
+<div class="grid three">
+  <div class="stamp" id="stamp1"><div class="seal">01</div><strong>Foundation</strong><p class="small">Complete all {{ site.modules | size }} modules.</p><span class="pill" id="stamp1-status">In progress</span></div>
+  <div class="stamp" id="stamp2"><div class="seal">02</div><strong>Five Applications Submitted</strong><p class="small">Five distinct submissions with evidence.</p><span class="pill" id="stamp2-status">0 / 5</span></div>
+  <div class="stamp" id="stamp3"><div class="seal">03+</div><strong>Opportunity Achieved</strong><p class="small">Record an offer or completed opportunity with proof.</p><span class="pill">Add when achieved</span></div>
+</div>
+<div class="section-head"><div><h2>Your activity</h2><div class="muted">A private record of your steps.</div></div></div>
+<div class="card"><div id="passport-log" class="muted">Your milestones will appear here as you complete them.</div></div>
+{% if page.stamp_notice %}<div class="notice"><p>{{ page.stamp_notice }}</p></div>{% endif %}
+<form class="card" id="outcome-form" novalidate>
+  <h3>Record an opportunity outcome</h3>
+  <label for="outcome-name">Opportunity name</label>
+  <input id="outcome-name" type="text" placeholder="Enter programme or opportunity name">
+  <label for="outcome-type">Outcome</label>
+  <select id="outcome-type"><option value="received">I received an offer / selection</option><option value="completed">I completed the opportunity</option></select>
+  <label for="outcome-proof">Evidence file name (prototype only)</label>
+  <input id="outcome-proof" type="text" placeholder="e.g. offer-letter.pdf">
+  <button class="btn" style="margin-top:14px" type="submit">Add outcome to passport</button>
+  <p class="small muted">In a live product, this requires secure file upload and a defined review process. This demo stores only the entered file name in this browser.</p>
+</form>

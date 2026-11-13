@@ -1,59 +1,37 @@
 ---
 layout: page
 ---
-{{ content }}
-{% assign opps = site.opportunities | sort: "deadline", "last" %}
-<form class="filters" id="opp-filters" onsubmit="return false" aria-label="Filter opportunities">
-  <label>Type
-    <select name="category">
-      <option value="">All types</option>
-      {% assign cats = site.opportunities | map: "category" | uniq | sort %}
-      {% for c in cats %}<option>{{ c }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>For
-    <select name="audience">
-      <option value="">Everyone</option>
-      <option>High school</option>
-      <option>College & graduates</option>
-      <option>Women in transition</option>
-    </select>
-  </label>
-  <label class="check"><input type="checkbox" name="free"> Free only</label>
-</form>
-<p class="results-count" id="opp-count" aria-live="polite"></p>
-
-<div class="opp-list">
-  {% for o in opps %}
-  <article class="card opp" data-category="{{ o.category }}" data-audience="{{ o.audience | join: '|' }}" data-free="{{ o.free }}">
-    <div class="opp-head">
-      <h3>{{ o.title }}</h3>
-      <p class="tags">
-        <span class="tag">{{ o.category }}</span>
-        {% if o.free %}<span class="tag tag-free">Free</span>{% endif %}
-        {% if o.example %}<span class="tag tag-example">Example – not a real offer</span>{% endif %}
-      </p>
-    </div>
-    <dl class="facts">
-      <dt>Who it’s for</dt><dd>{{ o.who }}</dd>
-      <dt>Deadline</dt><dd>{% if o.deadline %}{{ o.deadline | date: "%-d %B %Y" }}{% else %}Rolling / not announced{% endif %}</dd>
-    </dl>
-    <details>
-      <summary>Details & how to prepare</summary>
-      <dl class="facts">
-        <dt>Eligibility</dt><dd>{{ o.eligibility }}</dd>
-        <dt>What it offers</dt><dd>{{ o.offers }}</dd>
-        <dt>Cost</dt><dd>{{ o.cost }}</dd>
-        <dt>Documents typically required</dt><dd>{{ o.documents }}</dd>
-        <dt>How to prepare</dt><dd>{{ o.prepare }}</dd>
-      </dl>
-      {% if o.content != "" %}<div class="prose">{{ o.content | markdownify }}</div>{% endif %}
-    </details>
-    <p class="opp-foot">
-      {% if o.link contains "http" %}<a class="button button-small" href="{{ o.link }}" rel="noopener" target="_blank">Official page</a>{% endif %}
-      <span class="verified">Last verified: {% if o.last_verified %}{{ o.last_verified | date: "%-d %b %Y" }}{% else %}not yet{% endif %}</span>
-    </p>
-  </article>
-  {% endfor %}
+{% assign opps = site.opportunities | sort: "title" %}
+<div class="filters" role="search">
+  <input id="search" type="search" placeholder="Search by title, provider or keyword" aria-label="Search opportunities">
+  <select id="type-filter" aria-label="Filter by opportunity type">
+    <option value="">All types</option>
+    {% for t in page.types %}<option>{{ t }}</option>{% endfor %}
+  </select>
+  <select id="subject-filter" aria-label="Filter by subject">
+    <option value="">All subjects</option>
+    {% for s in page.subjects %}<option>{{ s }}</option>{% endfor %}
+  </select>
 </div>
-<script src="{{ '/assets/js/filter.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% if page.demo_notice %}<div class="notice"><p>{{ page.demo_notice }}</p></div>{% endif %}
+<div id="opp-list" class="card">
+  {% for o in opps %}
+  {% assign oid = o.path | split: "/" | last | remove: ".md" %}
+  <div class="opp" data-id="{{ oid }}" data-type="{{ o.type }}" data-subject="{{ o.subject }}" data-search="{{ o.title | append: ' ' | append: o.provider | append: ' ' | append: o.subject | downcase | escape }}">
+    <div>
+      <span class="pill">{{ o.type }}</span><span class="pill">{{ o.subject }}</span>
+      <h3>{{ o.title }}</h3>
+      <div class="small muted">{{ o.provider }} · {{ o.mode }} · {{ o.cost }}</div>
+      <p class="small">{{ o.description }}</p>
+      <strong class="small">{{ o.deadline }}</strong>
+      {% if o.example %}<p class="small muted">Demo item — no official link or eligibility verification.</p>{% endif %}
+      {% if o.link contains "http" %}<p class="small"><a href="{{ o.link }}" rel="noopener" target="_blank">Official page</a></p>{% endif %}
+    </div>
+    <div class="row">
+      <button type="button" class="btn secondary" data-save="{{ oid }}">Save</button>
+      <button type="button" class="btn" data-submit="{{ oid }}">Mark submitted</button>
+    </div>
+  </div>
+  {% endfor %}
+  <p id="opp-empty" hidden>No results. Try removing a filter or changing your search.</p>
+</div>

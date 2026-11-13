@@ -1,13 +1,9 @@
 ---
 layout: opportunities
-title: Opportunity Explorer
-eyebrow: Opportunities
-intro: Internships, fellowships, scholarships, grants, competitions, certifications, volunteering and leadership programmes – explained, not just listed.
+title: Opportunities Hub
+eyebrow: Discover · Prepare · Pursue
+intro: Explore learning and career opportunities from organisations around the world.
+demo_notice: Demo listings below are fictional examples for testing the layout. Replace them with sourced, verified opportunities before launch.
+types: [Free certification, Internship, Fellowship, Scholarship]
+subjects: [Business, Technology, Social Sciences, Arts]
 ---
-
-Each entry tells you who it is for, what it offers, what you need and how to prepare.
-Always check the **official page** before applying – details can change.
-
-**Learn to verify opportunities yourself:** Is the organisation real and known? Is there
-an official website? Does anyone ask you to pay to apply? Module 3 “Explore” teaches
-you how to check.

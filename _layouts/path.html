@@ -1,0 +1,31 @@
+---
+layout: page
+---
+<div id="quiz-start" class="card">
+  <h3>Ready to explore?</h3>
+  <p>You can skip this at any time and go straight to the Opportunities Hub.</p>
+  <button type="button" class="btn" data-quiz="start">Help me find my path</button>
+  <a class="btn secondary" href="{{ '/opportunities/' | relative_url }}">I already know — skip</a>
+</div>
+<div id="quiz-box" class="card" hidden>
+  <div class="row space"><strong id="quiz-step-label">Question 1 of {{ page.questions | size }}</strong><span class="pill">No right or wrong answers</span></div>
+  <div class="progress"><span id="quiz-progress"></span></div>
+  <fieldset style="border:0;padding:0;margin:0">
+    <legend><h3 id="quiz-question"></h3></legend>
+    <div id="quiz-options"></div>
+  </fieldset>
+  <p id="quiz-hint" class="small" style="color:#9d4b42" hidden>Choose an option or skip the quiz.</p>
+  <div class="actions">
+    <button type="button" class="btn secondary" data-quiz="back">Back</button>
+    <button type="button" class="btn" data-quiz="next">Next</button>
+    <a class="btn secondary" href="{{ '/opportunities/' | relative_url }}">Skip quiz</a>
+  </div>
+</div>
+<div id="quiz-result" class="card" hidden>
+  <h3>Your exploration starting points</h3>
+  <p id="quiz-result-text"></p>
+  <p class="small muted">These are broad areas to explore, not a final career recommendation. You can retake the quiz or browse everything.</p>
+  <a class="btn" href="{{ '/opportunities/' | relative_url }}">Explore opportunities</a>
+  <button type="button" class="btn secondary" data-quiz="start">Retake quiz</button>
+</div>
+<script>window.OD_QUIZ = {{ page.questions | jsonify }}; window.OD_QUIZ_FIELDS = {{ page.fields | jsonify }};</script>

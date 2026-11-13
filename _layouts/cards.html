@@ -1,0 +1,9 @@
+---
+layout: page
+---
+<div class="grid two">
+  {% for c in page.cards %}
+  <article class="card"><h3>{{ c.title }}</h3><p>{{ c.text }}</p>{% if c.tag %}<span class="pill">{{ c.tag }}</span>{% endif %}</article>
+  {% endfor %}
+</div>
+{% if page.bottom_notice %}<div class="notice"><p>{{ page.bottom_notice }}</p></div>{% endif %}

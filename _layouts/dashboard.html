@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="eyebrow">{{ page.eyebrow }}</div>
+<h1>{{ page.greeting }}</h1>
+<p class="muted">{{ page.intro }}</p>
+<div class="grid two">
+  <article class="card">
+    <h3>Foundation progress</h3>
+    <strong id="dash-mod-count">0 of {{ site.modules | size }} modules</strong>
+    <div class="progress"><span id="dash-progress"></span></div>
+    <a class="btn secondary" href="{{ '/foundation/' | relative_url }}">Continue learning</a>
+  </article>
+  <article class="card">
+    <h3>Applications submitted</h3>
+    <div style="font-size:2rem;font-weight:800;color:var(--green)" id="dash-app-count">0 / 5</div>
+    <p class="small">Evidence-supported submissions count towards Stamp 2.</p>
+    <a class="btn secondary" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
+  </article>
+</div>
+<div class="section-head"><div><h2>Your next step</h2><div class="muted">Choose what feels useful today.</div></div></div>
+<div class="grid">
+  {% for c in page.cards %}
+  <article class="card"><h3>{{ c.title }}</h3><p>{{ c.text }}</p><a class="btn secondary" href="{{ c.link | relative_url }}">{{ c.button }}</a></article>
+  {% endfor %}
+</div>
+<p class="small muted" style="margin-top:28px">Your progress is saved only in this browser on this device. <button type="button" class="btn secondary" style="padding:6px 10px;font-size:.85rem" onclick="OD.clear()">Clear my progress</button></p>

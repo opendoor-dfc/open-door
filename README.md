@@ -12,8 +12,8 @@ Die Website ist ein **Prototyp**, entstanden im Women@Dior × UNESCO Mentoring-P
    - **Opportunities**: Chancen (Praktika, Stipendien …)
    - **Resources**: Lernplattformen, Vorlagen, Guides
    - **Events & Workshops**
-   - **Programme modules**: die 5 Module des Zertifikatsprogramms
-   - **Page: …**: die Texte der einzelnen Seiten
+   - **Foundation modules**: die 6 Module des Foundation Certificate
+   - **Page: …**: die Texte der einzelnen Seiten (Home, Foundation, Find Your Path mit den Quizfragen, Passport, Culture Exchange, Dashboard …)
 4. Klicke auf einen Eintrag, ändere ihn und klicke auf **Save**. Für einen neuen Eintrag klickst du auf **Add an entry**.
 5. Nach etwa 1–2 Minuten ist die Änderung auf der Website sichtbar.
 

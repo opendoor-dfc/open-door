@@ -2,53 +2,29 @@
 layout: default
 ---
 <section class="hero">
-  <div class="container hero-inner">
-    <div>
-      <p class="eyebrow">OPEN DOOR</p>
-      <h1>{{ page.headline }}</h1>
-      <p class="lead">{{ page.intro }}</p>
-      <div class="actions">
-        <a class="button" href="{{ '/learn/' | relative_url }}">Explore the programme</a>
-        <a class="button button-ghost" href="{{ '/opportunities/' | relative_url }}">Find opportunities</a>
-      </div>
-    </div>
-    <div class="hero-door">
-      {% include door.svg class="door-large" %}
-    </div>
+  <div class="eyebrow">{{ page.eyebrow }}</div>
+  <h1>{{ page.headline }}</h1>
+  <p>{{ page.intro }}</p>
+  <div class="actions">
+    <a class="btn gold" href="{{ '/foundation/' | relative_url }}">{{ page.primary_button }}</a>
+    <a class="btn light" href="{{ '/opportunities/' | relative_url }}">{{ page.secondary_button }}</a>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>Who we serve</h2>
-    <div class="grid grid-3">
-      {% for group in page.audiences %}
-      <div class="card">
-        <h3>{{ group.title }}</h3>
-        <p>{{ group.text }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+<div class="section-head"><div><h2>{{ page.journey_title }}</h2><div class="muted">{{ page.journey_subtitle }}</div></div></div>
+<div class="grid">
+  {% for c in page.cards %}
+  <article class="card">
+    <div class="num">{{ c.label }}</div>
+    <h3>{{ c.title }}</h3>
+    <p>{{ c.text }}</p>
+    <a class="btn secondary" href="{{ c.link | relative_url }}">{{ c.button }}</a>
+  </article>
+  {% endfor %}
+</div>
 
-<section class="section section-tint">
-  <div class="container">
-    <h2>Your journey</h2>
-    <ol class="journey">
-      {% for step in page.journey %}
-      <li>
-        <span class="journey-num">{{ forloop.index }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.text }}</p>
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container prose">
-    {{ content }}
-  </div>
-</section>
+<div class="section-head"><div><h2>{{ page.how_title }}</h2><div class="muted">{{ page.how_subtitle }}</div></div></div>
+<div class="card row space flow">
+  {% for step in page.steps %}<strong>{{ step }}</strong>{% unless forloop.last %}<span aria-hidden="true">→</span>{% endunless %}{% endfor %}
+</div>
+{% if page.notice %}<div class="notice"><p>{{ page.notice }}</p></div>{% endif %}

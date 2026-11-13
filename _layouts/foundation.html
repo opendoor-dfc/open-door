@@ -1,0 +1,17 @@
+---
+layout: page
+---
+{% assign modules = site.modules | sort: "number" %}
+<div class="card">
+  <div class="row space"><strong id="module-count">0 of {{ modules | size }} modules completed</strong><span class="pill">{{ page.pill }}</span></div>
+  <div class="progress"><span id="module-progress"></span></div>
+  <div id="module-list">
+    {% for m in modules %}
+    <div class="module">
+      <div><strong>{{ m.number }}. {{ m.title }}</strong><p class="small muted">{{ m.summary }}</p></div>
+      <label class="checkrow"><input type="checkbox" data-module="{{ m.number }}"> <span class="small">Mark task complete</span></label>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% if page.certificate_note %}<p class="small muted">{{ page.certificate_note }}</p>{% endif %}

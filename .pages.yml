@@ -13,45 +13,39 @@ content:
     path: _opportunities
     filename: "{primary}.md"
     view:
-      fields: [title, category, deadline, last_verified]
-      sort: [deadline, title]
+      fields: [title, type, subject]
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - name: example
-        label: Example entry (placeholder, not a real offer)
-        type: boolean
-        default: false
-      - name: category
+      - { name: provider, label: Provider / organisation, type: string }
+      - name: type
         label: Type
         type: select
-        required: true
         options:
-          values: [Internship, Fellowship, Scholarship, Grant, Competition, Certification, Volunteering, "Leadership & career programme"]
-      - name: audience
-        label: Suitable for
+          values: [Free certification, Internship, Fellowship, Scholarship]
+      - name: subject
+        label: Subject
         type: select
         options:
-          multiple: true
-          values: [High school, "College & graduates", Women in transition]
-      - { name: free, label: Free to apply / free of charge, type: boolean, default: true }
-      - { name: who, label: Who it's for, type: text }
-      - { name: eligibility, label: Eligibility requirements, type: text }
-      - { name: offers, label: What it offers, type: text }
-      - { name: cost, label: Cost, type: string, description: "e.g. Free to apply / 20 € application fee" }
-      - name: deadline
-        label: Application deadline
-        type: date
-        description: Leave empty if rolling or not announced
-        options: { format: yyyy-MM-dd }
-      - { name: link, label: Official application link, type: string, description: "Full address starting with https://" }
-      - { name: documents, label: Documents typically required, type: text }
-      - { name: prepare, label: How to prepare, type: text }
-      - name: last_verified
-        label: Last verified on
-        type: date
-        description: The date someone from the team last checked this on the official page
-        options: { format: yyyy-MM-dd }
-      - { name: body, label: Extra notes (optional), type: rich-text }
+          values: [Business, Technology, Social Sciences, Arts]
+      - { name: mode, label: "Mode (Online, Hybrid, On-site)", type: string }
+      - { name: cost, label: Cost or funding, type: string }
+      - { name: deadline, label: Deadline, type: string, description: "e.g. 30 June 2027 or Open enrolment" }
+      - { name: description, label: Short description, type: text }
+      - { name: link, label: Official link, type: string, description: "Full address starting with https://" }
+      - { name: example, label: Demo entry (not a real offer), type: boolean, default: false }
+
+  - name: modules
+    label: Foundation modules
+    type: collection
+    path: _modules
+    filename: "{fields.number}-{primary}.md"
+    view:
+      fields: [number, title]
+      sort: [number]
+    fields:
+      - { name: number, label: Module number, type: number, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: summary, label: Short description, type: text }
 
   - name: resources
     label: Resources
@@ -66,11 +60,10 @@ content:
       - name: category
         label: Category
         type: select
-        required: true
         options:
           values: [Learning platforms, Course directories, "Templates & guides", Career tools]
       - { name: link, label: Link, type: string, description: "Full address starting with https://" }
-      - { name: cost, label: Cost, type: string, description: "e.g. Free / Free to audit, certificates often paid" }
+      - { name: cost, label: Cost, type: string }
       - { name: summary, label: Short description, type: text }
 
   - name: events
@@ -83,7 +76,7 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: order, label: Position in list (1 = first), type: number }
-      - { name: status, label: Status, type: string, description: "e.g. Planned – date to be announced / Registration open" }
+      - { name: status, label: Status, type: string }
       - { name: target, label: For whom, type: text }
       - { name: focus, label: Focus, type: text }
       - { name: takeaway, label: Takeaway, type: text }
@@ -91,22 +84,7 @@ content:
       - { name: location, label: Location, type: string }
       - { name: body, label: Description, type: rich-text }
 
-  - name: modules
-    label: Programme modules
-    type: collection
-    path: _modules
-    filename: "{fields.number}-{primary}.md"
-    view:
-      fields: [number, title]
-      sort: [number]
-    fields:
-      - { name: number, label: Module number, type: number, required: true }
-      - { name: title, label: Title, type: string, required: true }
-      - { name: focus, label: Focus, type: text }
-      - { name: result, label: Participant output, type: text }
-      - { name: body, label: Description (optional), type: rich-text }
-
-  # ---------- Single pages ----------
+  # ---------- Pages ----------
   - name: home
     label: "Page: Home"
     type: file
@@ -114,46 +92,133 @@ content:
     fields:
       - { name: layout, type: string, hidden: true, default: home }
       - { name: title, type: string, hidden: true, default: Home }
+      - { name: eyebrow, label: Small label above headline, type: string }
       - { name: headline, label: Headline, type: string }
       - { name: intro, label: Introduction, type: text }
-      - name: audiences
-        label: Who we serve
+      - { name: primary_button, label: Gold button text, type: string }
+      - { name: secondary_button, label: Second button text, type: string }
+      - { name: journey_title, label: "Journey: title", type: string }
+      - { name: journey_subtitle, label: "Journey: subtitle", type: string }
+      - name: cards
+        label: "Journey: cards"
         type: object
         list: true
         fields:
-          - { name: title, label: Group, type: string }
+          - { name: label, label: "Label (e.g. 01 / LEARN)", type: string }
+          - { name: title, label: Title, type: string }
           - { name: text, label: Text, type: text }
-      - name: journey
-        label: Journey steps
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Step, type: string }
-          - { name: text, label: Text, type: text }
-      - { name: body, label: Main text, type: rich-text }
+          - { name: button, label: Button text, type: string }
+          - { name: link, label: "Button link (e.g. /foundation/)", type: string }
+      - { name: how_title, label: "How it works: title", type: string }
+      - { name: how_subtitle, label: "How it works: subtitle", type: string }
+      - { name: steps, label: "How it works: steps", type: string, list: true }
+      - { name: notice, label: Note at the bottom, type: text }
 
-  - name: learn
-    label: "Page: Learn"
+  - name: foundation
+    label: "Page: Foundation"
     type: file
-    path: learn.md
+    path: foundation.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: foundation }
+      - { name: title, label: Title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: notice, label: Highlighted note, type: text }
+      - { name: pill, label: Badge text, type: string }
+      - { name: certificate_note, label: Certificate note, type: text }
+
+  - name: path
+    label: "Page: Find Your Path (quiz)"
+    type: file
+    path: path.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: path }
+      - { name: title, label: Title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: notice, label: Highlighted note, type: text }
+      - { name: fields, label: "Result fields (answer 1 → field 1, answer 2 → field 2 …)", type: string, list: true }
+      - name: questions
+        label: Questions
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answers, label: "Answers (same order as the result fields)", type: string, list: true }
+
+  - name: opportunities-page
+    label: "Page: Opportunities"
+    type: file
+    path: opportunities.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: opportunities }
+      - { name: title, label: Title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: demo_notice, label: Highlighted note, type: text }
+      - { name: types, label: Type filter options, type: string, list: true }
+      - { name: subjects, label: Subject filter options, type: string, list: true }
+
+  - name: passport
+    label: "Page: Passport"
+    type: file
+    path: passport.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: passport }
+      - { name: title, label: Title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - { name: stamp_notice, label: Highlighted note, type: text }
+
+  - name: culture
+    label: "Page: Culture Exchange"
+    type: file
+    path: culture.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: cards }
+      - { name: title, label: Title, type: string }
+      - { name: eyebrow, label: Small label above title, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: cards
+        label: Cards
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: tag, label: Badge, type: string }
+      - { name: bottom_notice, label: Note at the bottom, type: text }
+
+  - name: dashboard
+    label: "Page: My dashboard"
+    type: file
+    path: dashboard.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: dashboard }
+      - { name: title, type: string, hidden: true, default: My dashboard }
+      - { name: eyebrow, label: Small label above greeting, type: string }
+      - { name: greeting, label: Greeting, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: cards
+        label: "Next step: cards"
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: button, label: Button text, type: string }
+          - { name: link, label: Button link, type: string }
+
+  - name: resources-page
+    label: "Page: Resources"
+    type: file
+    path: resources.md
     fields: &pagefields
       - { name: layout, type: string, hidden: true }
       - { name: title, label: Page title, type: string }
       - { name: eyebrow, label: Small label above title, type: string }
       - { name: intro, label: Introduction, type: text }
       - { name: body, label: Main text, type: rich-text }
-
-  - name: resources-page
-    label: "Page: Resources"
-    type: file
-    path: resources.md
-    fields: *pagefields
-
-  - name: opportunities-page
-    label: "Page: Opportunities"
-    type: file
-    path: opportunities.md
-    fields: *pagefields
 
   - name: events-page
     label: "Page: Events"

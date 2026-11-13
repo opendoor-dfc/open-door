@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: text
 title: About & Community
 eyebrow: About us
 intro: OPEN DOOR is a community-powered initiative. Our vision is to equip girls and women with the knowledge, skills and confidence to pursue the possibilities beyond the doors they see.

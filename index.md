@@ -1,37 +1,36 @@
 ---
 layout: home
 title: Home
-headline: From Potential to Possibility.
-intro: Free learning, guidance and opportunities for girls and women.
-audiences:
-  - title: High school girls
-    text: Discover your interests and strengths, choose subjects and explore possible pathways.
-  - title: College students & graduates
-    text: Find courses, internships and fellowships, and build a CV and profile that opens doors.
-  - title: Women in transition
-    text: Learn new skills, change careers or return to work with a clear plan for your next step.
-journey:
-  - title: Discover
-    text: Find OPEN DOOR on Instagram, Facebook, LinkedIn or at a local event.
-  - title: Learn & explore
-    text: Use the certificate programme, resource library and opportunity explorer.
-  - title: Practise & apply
-    text: Join workshops and profile reviews and complete practical assignments.
-  - title: Act & share
-    text: Pursue opportunities, track your progress and help other participants.
+eyebrow: A space to learn, explore and move forward
+headline: Your next chapter starts here.
+intro: Discover what you can do. Build the skills to get there. Find opportunities waiting for you.
+primary_button: Start your journey
+secondary_button: I know what I’m looking for
+journey_title: Your journey, your pace.
+journey_subtitle: Start with any step. The career quiz is optional.
+cards:
+  - label: 01 / LEARN
+    title: Foundation Certificate
+    text: Build practical creative and professional skills.
+    button: Explore modules
+    link: /foundation/
+  - label: 02 / EXPLORE
+    title: Find Your Path
+    text: Explore your interests and possible directions.
+    button: Take optional quiz
+    link: /path/
+  - label: 03 / DISCOVER
+    title: Opportunities Hub
+    text: Find certifications, internships, fellowships and scholarships.
+    button: Browse opportunities
+    link: /opportunities/
+  - label: 04 / TRACK
+    title: Possibility Passport
+    text: Keep a record of learning, applications and milestones.
+    button: View passport
+    link: /passport/
+how_title: How OPEN DOOR works
+how_subtitle: A simple journey, with room to choose your own route.
+steps: [LEARN, EXPLORE (OPTIONAL), APPLY, TRACK]
+notice: "Prototype note: sample opportunities and progress in this demo are illustrative only. A live site must use reviewed listings and secure accounts."
 ---
-
-## Why OPEN DOOR?
-
-Many girls and women have the ability and motivation to reach their goals but lack
-structured guidance: which learning path to choose, which resources to trust, how to
-build a professional profile and how to navigate applications.
-
-Our aim is not simply to show which doors exist, but to build the **knowledge, skills
-and confidence** to walk through them independently.
-
-## How to participate
-
-1. **Follow us** on social media for daily tips and opportunities.
-2. **Join the certificate programme** – five modules, each with a practical output.
-3. **Come to a workshop** near you and work on your own plan with guidance.

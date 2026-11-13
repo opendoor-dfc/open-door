@@ -1,5 +1,5 @@
 title: OPEN DOOR
-tagline: From Potential to Possibility.
+tagline: DISCOVER. PREPARE. PURSUE.
 description: >-
   A community-powered learning and development initiative helping girls and women
   discover their interests, develop relevant skills, build their profiles and pursue
@@ -33,12 +33,20 @@ collections:
 nav:
   - title: Home
     url: /
-  - title: Learn
-    url: /learn/
-  - title: Resources
-    url: /resources/
+  - title: Foundation
+    url: /foundation/
+  - title: Find Your Path
+    url: /path/
   - title: Opportunities
     url: /opportunities/
+  - title: Passport
+    url: /passport/
+  - title: Culture Exchange
+    url: /culture/
+
+footer_nav:
+  - title: Resources
+    url: /resources/
   - title: Events
     url: /events/
   - title: About

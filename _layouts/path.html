@@ -3,9 +3,7 @@ layout: page
 ---
 <div id="quiz-start" class="card">
   <h3>Ready to explore?</h3>
-  <p>You can skip this at any time and go straight to the Opportunities Hub.</p>
-  <button type="button" class="btn" data-quiz="start">Help me find my path</button>
-  <a class="btn secondary" href="{{ '/opportunities/' | relative_url }}">I already know — skip</a>
+  <button type="button" class="btn" data-quiz="start" style="margin-top:8px">Take the quiz</button>
 </div>
 <div id="quiz-box" class="card" hidden>
   <div class="row space"><strong id="quiz-step-label">Question 1 of {{ page.questions | size }}</strong><span class="pill">No right or wrong answers</span></div>

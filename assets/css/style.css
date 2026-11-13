@@ -90,7 +90,7 @@ h3 { color: var(--green); margin: 0 0 7px; }
 .module p, .opp p { margin: 4px 0 8px; }
 input[type=text], input[type=search], select, textarea { width: 100%; padding: 11px; border: 1px solid #bbc6bd; border-radius: 8px; background: #fff; color: var(--ink); }
 label { display: block; font-weight: 650; margin: 12px 0 5px; }
-.filters { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; margin: 16px 0; }
+.filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; margin: 16px 0; }
 .stamp { border: 1px dashed var(--gold); border-radius: 14px; padding: 18px; text-align: center; background: #fffdf7; }
 .stamp .seal { width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: grid; place-items: center; margin: 0 auto 10px; color: var(--gold); font-weight: 900; }
 .stamp.earned { background: #f1f5ef; border-style: solid; }
@@ -125,7 +125,7 @@ label { display: block; font-weight: 650; margin: 12px 0 5px; }
   .nav nav::-webkit-scrollbar { display: none; }
   .nav nav a { white-space: nowrap; }
   .nav .dash-btn { margin-left: auto; }
-  .filters { grid-template-columns: 1fr 1fr; }
+  .filters { grid-template-columns: 1fr 1fr 1fr; }
   .filters input { grid-column: 1 / -1; }
 }
 @media (max-width: 560px) {

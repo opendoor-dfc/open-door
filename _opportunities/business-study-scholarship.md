@@ -3,6 +3,7 @@ title: Business Study Scholarship
 provider: Example Foundation
 type: Scholarship
 subject: Business
+region: [Africa, Asia]
 mode: On-site
 cost: Funded (sample)
 deadline: "Example date: 1 August"

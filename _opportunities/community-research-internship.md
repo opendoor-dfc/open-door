@@ -3,6 +3,7 @@ title: Community Research Internship
 provider: Sample Research Collective
 type: Internship
 subject: Social Sciences
+region: [Asia]
 mode: Hybrid
 cost: Stipend stated by provider
 deadline: "Example date: 30 June"

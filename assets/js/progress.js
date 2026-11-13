@@ -91,11 +91,17 @@
   });
 
   // ---------- Opportunity search and filters ----------
-  var search = $('search'), typeF = $('type-filter'), subjF = $('subject-filter');
+  var search = $('search'), typeF = $('type-filter'), subjF = $('subject-filter'), regF = $('region-filter');
+  // Opportunities marked "Worldwide" show up for every region.
+  function matchesRegion(o, r) {
+    if (!r) return true;
+    var regions = (o.dataset.region || '').split('|');
+    return regions.indexOf(r) !== -1 || regions.indexOf('Worldwide') !== -1;
+  }
   function filterOpps() {
-    var q = (search.value || '').toLowerCase(), t = typeF.value, s = subjF.value, shown = 0;
+    var q = (search.value || '').toLowerCase(), t = typeF.value, s = subjF.value, r = regF ? regF.value : '', shown = 0;
     document.querySelectorAll('.opp').forEach(function (o) {
-      var ok = (!q || o.dataset.search.indexOf(q) !== -1) && (!t || o.dataset.type === t) && (!s || o.dataset.subject === s);
+      var ok = (!q || o.dataset.search.indexOf(q) !== -1) && (!t || o.dataset.type === t) && (!s || o.dataset.subject === s) && matchesRegion(o, r);
       o.hidden = !ok;
       if (ok) shown++;
     });
@@ -105,6 +111,7 @@
     search.addEventListener('input', filterOpps);
     typeF.addEventListener('change', filterOpps);
     subjF.addEventListener('change', filterOpps);
+    if (regF) regF.addEventListener('change', filterOpps);
   }
 
   // ---------- Find Your Path quiz (nothing is saved) ----------

@@ -6,4 +6,5 @@ intro: Explore learning and career opportunities from organisations around the w
 demo_notice: Demo listings below are fictional examples for testing the layout. Replace them with sourced, verified opportunities before launch.
 types: [Free certification, Internship, Fellowship, Scholarship]
 subjects: [Business, Technology, Social Sciences, Arts]
+regions: [Worldwide, Africa, Asia, Europe, Latin America, Middle East, North America, Oceania]
 ---

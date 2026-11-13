@@ -13,7 +13,7 @@ content:
     path: _opportunities
     filename: "{primary}.md"
     view:
-      fields: [title, type, subject]
+      fields: [title, type, subject, region]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: provider, label: Provider / organisation, type: string }
@@ -27,6 +27,13 @@ content:
         type: select
         options:
           values: [Business, Technology, Social Sciences, Arts]
+      - name: region
+        label: Region(s)
+        type: select
+        description: Choose Worldwide for online or international opportunities. They then appear under every region.
+        options:
+          multiple: true
+          values: [Worldwide, Africa, Asia, Europe, Latin America, Middle East, North America, Oceania]
       - { name: mode, label: "Mode (Online, Hybrid, On-site)", type: string }
       - { name: cost, label: Cost or funding, type: string }
       - { name: deadline, label: Deadline, type: string, description: "e.g. 30 June 2027 or Open enrolment" }
@@ -154,6 +161,7 @@ content:
       - { name: demo_notice, label: Highlighted note, type: text }
       - { name: types, label: Type filter options, type: string, list: true }
       - { name: subjects, label: Subject filter options, type: string, list: true }
+      - { name: regions, label: Region filter options, type: string, list: true }
 
   - name: passport
     label: "Page: Passport"

@@ -12,14 +12,18 @@ layout: page
     <option value="">All subjects</option>
     {% for s in page.subjects %}<option>{{ s }}</option>{% endfor %}
   </select>
+  <select id="region-filter" aria-label="Filter by region">
+    <option value="">All regions</option>
+    {% for r in page.regions %}{% unless r == "Worldwide" %}<option>{{ r }}</option>{% endunless %}{% endfor %}
+  </select>
 </div>
 {% if page.demo_notice %}<div class="notice"><p>{{ page.demo_notice }}</p></div>{% endif %}
 <div id="opp-list" class="card">
   {% for o in opps %}
-  {% assign oid = o.path | split: "/" | last | remove: ".md" %}
-  <div class="opp" data-id="{{ oid }}" data-type="{{ o.type }}" data-subject="{{ o.subject }}" data-search="{{ o.title | append: ' ' | append: o.provider | append: ' ' | append: o.subject | downcase | escape }}">
+  {% assign oid = o.path | split: "/" | last | remove: ".md" %}{% assign oregions = o.region | join: " " %}
+  <div class="opp" data-id="{{ oid }}" data-type="{{ o.type }}" data-subject="{{ o.subject }}" data-region="{{ o.region | join: '|' }}" data-search="{{ o.title | append: ' ' | append: o.provider | append: ' ' | append: o.subject | append: ' ' | append: oregions | downcase | escape }}">
     <div>
-      <span class="pill">{{ o.type }}</span><span class="pill">{{ o.subject }}</span>
+      <span class="pill">{{ o.type }}</span><span class="pill">{{ o.subject }}</span>{% for r in o.region %}<span class="pill">{{ r }}</span>{% endfor %}
       <h3>{{ o.title }}</h3>
       <div class="small muted">{{ o.provider }} · {{ o.mode }} · {{ o.cost }}</div>
       <p class="small">{{ o.description }}</p>

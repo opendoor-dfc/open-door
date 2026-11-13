@@ -5,10 +5,6 @@ layout: default
   <div class="eyebrow">{{ page.eyebrow }}</div>
   <h1>{{ page.headline }}</h1>
   <p>{{ page.intro }}</p>
-  <div class="actions">
-    <a class="btn gold" href="{{ '/foundation/' | relative_url }}">{{ page.primary_button }}</a>
-    <a class="btn light" href="{{ '/opportunities/' | relative_url }}">{{ page.secondary_button }}</a>
-  </div>
 </section>
 
 <div class="section-head"><div><h2>{{ page.journey_title }}</h2><div class="muted">{{ page.journey_subtitle }}</div></div></div>
@@ -22,9 +18,3 @@ layout: default
   </article>
   {% endfor %}
 </div>
-
-<div class="section-head"><div><h2>{{ page.how_title }}</h2><div class="muted">{{ page.how_subtitle }}</div></div></div>
-<div class="card row space flow">
-  {% for step in page.steps %}<strong>{{ step }}</strong>{% unless forloop.last %}<span aria-hidden="true">→</span>{% endunless %}{% endfor %}
-</div>
-{% if page.notice %}<div class="notice"><p>{{ page.notice }}</p></div>{% endif %}

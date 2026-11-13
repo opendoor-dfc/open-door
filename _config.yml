@@ -12,6 +12,7 @@ url: ""
 # Prototype phase: keep the site out of search engines.
 # Set to false only after the legal notice (Impressum) and privacy policy are in place.
 prototype: true
+prototype_note: "Prototype note: sample opportunities and progress in this demo are illustrative only. A live site must use reviewed listings and secure accounts."
 
 contact_email: "opendoors.dfc@gmail.com"
 
@@ -33,10 +34,10 @@ collections:
 nav:
   - title: Home
     url: /
-  - title: Foundation
-    url: /foundation/
   - title: Find Your Path
     url: /path/
+  - title: Foundation
+    url: /foundation/
   - title: Opportunities
     url: /opportunities/
   - title: Passport

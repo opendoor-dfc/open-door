@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="nav">
-    <a class="brand" href="{{ '/' | relative_url }}">OPEN DOOR<small>{{ site.tagline }}</small></a>
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="OPEN DOOR, home"><span class="brand-word" aria-hidden="true">OPEN D{% include door.svg class="brand-door" %}OR</span><small>{{ site.tagline }}</small></a>
     <nav aria-label="Main navigation">
       {% for item in site.nav %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {% endfor %}

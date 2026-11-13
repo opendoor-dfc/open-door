@@ -34,6 +34,13 @@ button { cursor: pointer; }
 .site-header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
 .nav { max-width: 1160px; margin: auto; padding: 14px 22px; display: flex; align-items: center; gap: 24px; }
 .brand { font-weight: 850; letter-spacing: .12em; color: var(--green); font-size: 1.15rem; text-decoration: none; white-space: nowrap; }
+.brand-word { display: inline-flex; align-items: flex-end; line-height: 1; }
+/* The arched door that replaces the first O in DOOR */
+.door .door-light { fill: var(--gold); }
+.door .door-leaf { fill: var(--green2); }
+.door .door-frame { fill: none; stroke: var(--green); stroke-width: 3.5; stroke-linejoin: round; }
+.brand-door { width: .72em; height: 1.17em; margin: 0 .12em 0 .02em; }
+.prototype-note { background: #f4efe3; color: #5b4a26; text-align: center; font-size: .8rem; padding: 6px 16px; border-bottom: 1px solid #e6dcc4; }
 .brand small { display: block; font-size: .56rem; letter-spacing: .16em; color: var(--gold); font-weight: 700; }
 .nav nav { display: flex; gap: 6px; flex: 1; justify-content: center; flex-wrap: wrap; }
 .nav nav a { padding: 9px 11px; border-radius: 8px; color: #405047; text-decoration: none; }
@@ -118,6 +125,7 @@ label { display: block; font-weight: 650; margin: 12px 0 5px; }
 }
 @media (max-width: 560px) {
   .wrap { padding: 18px 14px 55px; }
+  .prototype-note { font-size: .7rem; padding: 5px 12px; line-height: 1.35; }
   .grid, .grid.two, .grid.three { grid-template-columns: 1fr; }
   .hero { border-radius: 15px; }
   .filters { grid-template-columns: 1fr; }

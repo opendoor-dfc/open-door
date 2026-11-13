@@ -11,6 +11,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  {% if site.prototype %}<div class="prototype-note" role="note">{{ site.prototype_note }}</div>{% endif %}
   {% include header.html %}
   <main id="main" class="wrap">
     {{ content }}

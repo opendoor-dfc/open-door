@@ -95,8 +95,6 @@ content:
       - { name: eyebrow, label: Small label above headline, type: string }
       - { name: headline, label: Headline, type: string }
       - { name: intro, label: Introduction, type: text }
-      - { name: primary_button, label: Gold button text, type: string }
-      - { name: secondary_button, label: Second button text, type: string }
       - { name: journey_title, label: "Journey: title", type: string }
       - { name: journey_subtitle, label: "Journey: subtitle", type: string }
       - name: cards
@@ -109,10 +107,6 @@ content:
           - { name: text, label: Text, type: text }
           - { name: button, label: Button text, type: string }
           - { name: link, label: "Button link (e.g. /foundation/)", type: string }
-      - { name: how_title, label: "How it works: title", type: string }
-      - { name: how_subtitle, label: "How it works: subtitle", type: string }
-      - { name: steps, label: "How it works: steps", type: string, list: true }
-      - { name: notice, label: Note at the bottom, type: text }
 
   - name: foundation
     label: "Page: Foundation"

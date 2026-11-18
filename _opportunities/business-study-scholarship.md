@@ -2,7 +2,7 @@
 title: Business Study Scholarship
 provider: Example Foundation
 type: Scholarship
-subject: Business
+topic: Entrepreneurship
 region: [Africa, Asia]
 mode: On-site
 cost: Funded (sample)

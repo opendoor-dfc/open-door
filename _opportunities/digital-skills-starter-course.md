@@ -2,7 +2,7 @@
 title: Digital Skills Starter Course
 provider: Example Learning Centre
 type: Free certification
-subject: Technology
+topic: Employment
 region: [Worldwide]
 mode: Online
 cost: Free

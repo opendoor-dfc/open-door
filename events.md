@@ -2,7 +2,7 @@
 layout: events
 title: Events & Workshops
 eyebrow: Local action
-intro: Hands-on sessions in schools, colleges and community venues. Every workshop ends with a practical result.
+intro: Live workshops for high schools and universities. Every workshop ends with a practical result.
 ---
 
 A typical 90–120-minute session includes a short introduction, a focused learning

@@ -2,7 +2,7 @@
 title: Young Creators Fellowship
 provider: Demo Arts Network
 type: Fellowship
-subject: Arts
+topic: Leadership
 region: [Europe]
 mode: Online
 cost: Funding details to confirm

@@ -8,9 +8,9 @@ layout: page
     <option value="">All types</option>
     {% for t in page.types %}<option>{{ t }}</option>{% endfor %}
   </select>
-  <select id="subject-filter" aria-label="Filter by subject">
-    <option value="">All subjects</option>
-    {% for s in page.subjects %}<option>{{ s }}</option>{% endfor %}
+  <select id="topic-filter" aria-label="Filter by topic">
+    <option value="">All topics</option>
+    {% for t in page.topics %}<option>{{ t }}</option>{% endfor %}
   </select>
   <select id="region-filter" aria-label="Filter by region">
     <option value="">All regions</option>
@@ -21,9 +21,9 @@ layout: page
 <div id="opp-list" class="card">
   {% for o in opps %}
   {% assign oid = o.path | split: "/" | last | remove: ".md" %}{% assign oregions = o.region | join: " " %}
-  <div class="opp" data-id="{{ oid }}" data-type="{{ o.type }}" data-subject="{{ o.subject }}" data-region="{{ o.region | join: '|' }}" data-search="{{ o.title | append: ' ' | append: o.provider | append: ' ' | append: o.subject | append: ' ' | append: oregions | downcase | escape }}">
+  <div class="opp" data-id="{{ oid }}" data-type="{{ o.type }}" data-topic="{{ o.topic }}" data-region="{{ o.region | join: '|' }}" data-search="{{ o.title | append: ' ' | append: o.provider | append: ' ' | append: o.topic | append: ' ' | append: oregions | downcase | escape }}">
     <div>
-      <span class="pill">{{ o.type }}</span><span class="pill">{{ o.subject }}</span>{% for r in o.region %}<span class="pill">{{ r }}</span>{% endfor %}
+      <span class="pill">{{ o.type }}</span><span class="pill">{{ o.topic }}</span>{% for r in o.region %}<span class="pill">{{ r }}</span>{% endfor %}
       <h3>{{ o.title }}</h3>
       <div class="small muted">{{ o.provider }} · {{ o.mode }} · {{ o.cost }}</div>
       <p class="small">{{ o.description }}</p>
@@ -39,3 +39,10 @@ layout: page
   {% endfor %}
   <p id="opp-empty" hidden>No results. Try removing a filter or changing your search.</p>
 </div>
+{% if page.share_title %}
+<div class="card" style="margin-top:14px">
+  <h3>{{ page.share_title }}</h3>
+  <p>{{ page.share_text }}</p>
+  <a class="btn secondary" href="mailto:{{ site.contact_email }}?subject=Opportunity%20for%20OPEN%20DOOR&amp;body=Title%3A%20%0AOrganisation%3A%20%0AShort%20description%3A%20%0AOfficial%20link%3A%20%0A">Share an opportunity</a>
+</div>
+{% endif %}

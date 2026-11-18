@@ -23,7 +23,7 @@ layout: page
   <h3>Your exploration starting points</h3>
   <p id="quiz-result-text"></p>
   <p class="small muted">These are broad areas to explore, not a final career recommendation. You can retake the quiz or browse everything.</p>
-  <a class="btn" href="{{ '/opportunities/' | relative_url }}">Explore opportunities</a>
+  <a class="btn" id="quiz-result-link" data-base="{{ '/opportunities/' | relative_url }}" href="{{ '/opportunities/' | relative_url }}">See matching opportunities</a>
   <button type="button" class="btn secondary" data-quiz="start">Retake quiz</button>
 </div>
 <script>window.OD_QUIZ = {{ page.questions | jsonify }}; window.OD_QUIZ_FIELDS = {{ page.fields | jsonify }};</script>

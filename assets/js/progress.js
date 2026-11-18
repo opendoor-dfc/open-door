@@ -91,7 +91,7 @@
   });
 
   // ---------- Opportunity search and filters ----------
-  var search = $('search'), typeF = $('type-filter'), subjF = $('subject-filter'), regF = $('region-filter');
+  var search = $('search'), typeF = $('type-filter'), topicF = $('topic-filter'), regF = $('region-filter');
   // Opportunities marked "Worldwide" show up for every region.
   function matchesRegion(o, r) {
     if (!r) return true;
@@ -99,19 +99,25 @@
     return regions.indexOf(r) !== -1 || regions.indexOf('Worldwide') !== -1;
   }
   function filterOpps() {
-    var q = (search.value || '').toLowerCase(), t = typeF.value, s = subjF.value, r = regF ? regF.value : '', shown = 0;
+    var q = (search.value || '').toLowerCase(), t = typeF.value, s = topicF.value, r = regF ? regF.value : '', shown = 0;
     document.querySelectorAll('.opp').forEach(function (o) {
-      var ok = (!q || o.dataset.search.indexOf(q) !== -1) && (!t || o.dataset.type === t) && (!s || o.dataset.subject === s) && matchesRegion(o, r);
+      var ok = (!q || o.dataset.search.indexOf(q) !== -1) && (!t || o.dataset.type === t) && (!s || o.dataset.topic === s) && matchesRegion(o, r);
       o.hidden = !ok;
       if (ok) shown++;
     });
     var empty = $('opp-empty'); if (empty) empty.hidden = shown > 0;
   }
-  if (search && typeF && subjF) {
+  if (search && typeF && topicF) {
     search.addEventListener('input', filterOpps);
     typeF.addEventListener('change', filterOpps);
-    subjF.addEventListener('change', filterOpps);
+    topicF.addEventListener('change', filterOpps);
     if (regF) regF.addEventListener('change', filterOpps);
+    // The quiz result links here with ?topic=… so the matching topic is preselected.
+    var wanted = new URLSearchParams(location.search).get('topic');
+    if (wanted && [].some.call(topicF.options, function (o) { return o.value === wanted; })) {
+      topicF.value = wanted;
+      filterOpps();
+    }
   }
 
   // ---------- Find Your Path quiz (nothing is saved) ----------
@@ -150,7 +156,9 @@
         var counts = fields.map(function () { return 0; });
         answers.forEach(function (a) { counts[a]++; });
         var best = counts.indexOf(Math.max.apply(null, counts));
-        setText('quiz-result-text', 'You may enjoy exploring ' + fields[best] + ' and related areas. Try a Foundation module and browse opportunities tagged to this field.');
+        setText('quiz-result-text', 'You may enjoy exploring ' + fields[best] + ' and related areas. Try a Foundation module and browse opportunities in this topic.');
+        var link = $('quiz-result-link');
+        if (link) link.href = link.dataset.base + '?topic=' + encodeURIComponent(fields[best]);
         showOnly('quiz-result');
       }
     });

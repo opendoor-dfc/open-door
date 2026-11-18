@@ -13,7 +13,7 @@ content:
     path: _opportunities
     filename: "{primary}.md"
     view:
-      fields: [title, type, subject, region]
+      fields: [title, type, topic, region]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: provider, label: Provider / organisation, type: string }
@@ -22,11 +22,11 @@ content:
         type: select
         options:
           values: [Free certification, Internship, Fellowship, Scholarship]
-      - name: subject
-        label: Subject
+      - name: topic
+        label: Topic
         type: select
         options:
-          values: [Business, Technology, Social Sciences, Arts]
+          values: [Employment, Entrepreneurship, Leadership, Sustainability]
       - name: region
         label: Region(s)
         type: select
@@ -160,8 +160,10 @@ content:
       - { name: intro, label: Introduction, type: text }
       - { name: demo_notice, label: Highlighted note, type: text }
       - { name: types, label: Type filter options, type: string, list: true }
-      - { name: subjects, label: Subject filter options, type: string, list: true }
+      - { name: topics, label: Topic filter options, type: string, list: true }
       - { name: regions, label: Region filter options, type: string, list: true }
+      - { name: share_title, label: "Share box: title", type: string }
+      - { name: share_text, label: "Share box: text", type: text }
 
   - name: passport
     label: "Page: Passport"

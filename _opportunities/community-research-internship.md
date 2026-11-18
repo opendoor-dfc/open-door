@@ -2,7 +2,7 @@
 title: Community Research Internship
 provider: Sample Research Collective
 type: Internship
-subject: Social Sciences
+topic: Sustainability
 region: [Asia]
 mode: Hybrid
 cost: Stipend stated by provider

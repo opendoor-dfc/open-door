@@ -86,7 +86,7 @@ h3 { color: var(--green); margin: 0 0 7px; }
 .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 .space { justify-content: space-between; }
 .module, .opp { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
-.module + .module, .opp + .opp { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px; }
+.module + .module, .opp:not([hidden]) ~ .opp:not([hidden]) { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px; }
 .module p, .opp p { margin: 4px 0 8px; }
 input[type=text], input[type=search], select, textarea { width: 100%; padding: 11px; border: 1px solid #bbc6bd; border-radius: 8px; background: #fff; color: var(--ink); }
 label { display: block; font-weight: 650; margin: 12px 0 5px; }
